@@ -37,38 +37,34 @@
 
         /* Style for analogies */
         .analogy {
-            background-color: #fefce8;
-            /* yellow-50 */
-            border-left: 4px solid #facc15;
-            /* yellow-400 */
+            background-color: #ffffff;
+            border-left: 4px solid #000000;
             padding: 1rem;
             margin: 1rem 0;
             border-radius: 0.25rem;
+            border: 1px solid #e5e5e5;
         }
 
         .analogy-title {
             font-weight: 600;
-            color: #ca8a04;
-            /* yellow-600 */
+            color: #000000;
             display: block;
             margin-bottom: 0.5rem;
         }
 
         /* Style for labs */
         .lab {
-            background-color: #f0fdf4;
-            /* green-50 */
-            border-left: 4px solid #4ade80;
-            /* green-400 */
+            background-color: #ffffff;
+            border-left: 4px solid #000000;
             padding: 1rem;
             margin: 1rem 0;
             border-radius: 0.25rem;
+            border: 1px solid #e5e5e5;
         }
 
         .lab-title {
             font-weight: 600;
-            color: #16a34a;
-            /* green-600 */
+            color: #000000;
             display: block;
             margin-bottom: 0.5rem;
         }
@@ -78,10 +74,8 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
-            /* slate-50 */
-            color: #334155;
-            /* slate-700 */
+            background-color: #ffffff;
+            color: #000000;
         }
     </style>
 </head>
@@ -92,24 +86,24 @@
 
         <!-- Header -->
         <header class="mb-10">
-            <h1 class="text-3xl md:text-4xl font-bold text-gray-900">Education Engineer Submission</h1>
+            <h1 class="text-3xl md:text-4xl font-bold text-black">Education Engineer Submission</h1>
             <p class="mt-2 text-lg text-gray-600">By Anirudh Edpuganti</p>
-            <p class="mt-4 text-gray-700">Thank you for the opportunity. Below is my proposed 4-week curriculum for the
+            <p class="mt-4 text-black">Thank you for the opportunity. Below is my proposed 4-week curriculum for the
                 "Agent Building for Developers" course (Part 1), along with my 3-minute teaching video (Part 2).</p>
         </header>
 
         <!-- Part 1: The 4-Week Curriculum -->
         <section class="mb-12">
-            <h2 class="text-2xl font-semibold text-gray-900 mb-6">Part 1: 4-Week Course Curriculum</h2>
+            <h2 class="text-2xl font-semibold text-black mb-6">Part 1: 4-Week Course Curriculum</h2>
 
             <div class="space-y-4">
 
                 <!-- Week 1 -->
-                <details class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-                    <summary class="text-xl font-semibold text-gray-800">
+                <details class="bg-white border border-gray-200 p-6 rounded-lg shadow-sm border border-gray-200">
+                    <summary class="text-xl font-semibold text-black">
                         Week 1: The Agentic Leap – From Prompting to Problem-Solving
                     </summary>
-                    <div class="mt-4 prose prose-slate max-w-none text-gray-700">
+                    <div class="mt-4 prose prose-slate max-w-none text-black">
                         <p class="text-lg"><strong>Weekly Goal:</strong> To "demystify" AI Agents by answering the
                             critical "Why?" and "What?". By the end of this week, you will move from being a developer
                             who uses an LLM to a developer who understands how to automate with an LLM. You will build
@@ -117,7 +111,7 @@
 
                         <hr class="my-4">
 
-                        <h3 class="font-semibold text-lg text-gray-800">Module 1.1: Why Agents? The Shift from
+                        <h3 class="font-semibold text-lg text-black">Module 1.1: Why Agents? The Shift from
                             Instruction to Intention</h3>
                         <p><strong>Concept:</strong> This module is our "Why?". Before we write any code, we must
                             establish why agents are the necessary next step. We'll explore the limitations of
@@ -140,9 +134,9 @@
                             </p>
                         </div>
 
-                        <div class="bg-blue-50 border-l-4 border-blue-400 p-4 my-4 rounded">
-                            <h4 class="font-semibold text-blue-800 mb-2">Key Learning:</h4>
-                            <ul class="list-disc pl-5 text-blue-700">
+                        <div class="bg-green-50 border-l-4 border-green-500 p-4 my-4 rounded">
+                            <h4 class="font-semibold text-green-800 mb-2">Key Learning:</h4>
+                            <ul class="list-disc pl-5 text-green-700">
                                 <li>LLMs are passive "brains" that respond to instructions.</li>
                                 <li>Agents are active systems that execute on intent.</li>
                                 <li>Agents are designed to automate complex, multi-step workflows that LLMs alone cannot
@@ -163,7 +157,7 @@
                                 the "program" an agent needs to run.</p>
                         </div>
 
-                        <h3 class="font-semibold text-lg text-gray-800 mt-6">Module 1.2: Deconstructing the "Magic": An
+                        <h3 class="font-semibold text-lg text-black mt-6">Module 1.2: Deconstructing the "Magic": An
                             Agent's Anatomy</h3>
                         <p><strong>Concept:</strong> We'll pull back the curtain and show that an agent is not a magical
                             black box. It's a simple, elegant programming loop that you already understand. We will
@@ -197,9 +191,9 @@ while not goal_achieved:
     # The loop repeats, feeding the new observation back to the LLM</code></pre>
                         </div>
 
-                        <div class="bg-blue-50 border-l-4 border-blue-400 p-4 my-4 rounded">
-                            <h4 class="font-semibold text-blue-800 mb-2">Key Learning:</h4>
-                            <ul class="list-disc pl-5 text-blue-700">
+                        <div class="bg-green-50 border-l-4 border-green-500 p-4 my-4 rounded">
+                            <h4 class="font-semibold text-green-800 mb-2">Key Learning:</h4>
+                            <ul class="list-disc pl-5 text-green-700">
                                 <li>The "Observe, Think, Act" (OTA) loop is the fundamental pattern of all agentic
                                     systems.</li>
                                 <li>The LLM's role shifts from being an answerer to being a planner or router that
@@ -220,7 +214,7 @@ while not goal_achieved:
                             </p>
                         </div>
 
-                        <h3 class="font-semibold text-lg text-gray-800 mt-6">Module 1.3: "Hello, Agent!" – Building Your
+                        <h3 class="font-semibold text-lg text-black mt-6">Module 1.3: "Hello, Agent!" – Building Your
                             First Agent from Scratch</h3>
                         <p><strong>Concept:</strong> This is where the confidence is built. We will build a real,
                             working agent using only standard Python and an LLM API key. No frameworks, no libraries, no
@@ -235,9 +229,9 @@ while not goal_achieved:
                                 know what the frameworks are doing for you later.</p>
                         </div>
 
-                        <div class="bg-blue-50 border-l-4 border-blue-400 p-4 my-4 rounded">
-                            <h4 class="font-semibold text-blue-800 mb-2">Key Learning:</h4>
-                            <ul class="list-disc pl-5 text-blue-700">
+                        <div class="bg-green-50 border-l-4 border-green-500 p-4 my-4 rounded">
+                            <h4 class="font-semibold text-green-800 mb-2">Key Learning:</h4>
+                            <ul class="list-disc pl-5 text-green-700">
                                 <li>An agent is just a Python script with a loop and a list to manage history (state).
                                 </li>
                                 <li>A "Tool" is just a Python function you write and describe in the system prompt.</li>
@@ -252,7 +246,7 @@ while not goal_achieved:
                                 can answer the question: "What's the weather in London?"</p>
 
                             <div class="mt-3">
-                                <h5 class="font-semibold text-green-700 mb-2">Requirements:</h5>
+                                <h5 class="font-semibold text-black mb-2">Requirements:</h5>
                                 <ol class="list-decimal pl-5 space-y-2">
                                     <li>You will write a simple Python function <code>get_weather(city)</code>. (It can
                                         just return a hard-coded JSON string like
@@ -281,11 +275,11 @@ while not goal_achieved:
                 </details>
 
                 <!-- Week 2 -->
-                <details class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-                    <summary class="text-xl font-semibold text-gray-800">
+                <details class="bg-white border border-gray-200 p-6 rounded-lg shadow-sm border border-gray-200">
+                    <summary class="text-xl font-semibold text-black">
                         Week 2: Giving Agents Memory – The Power of RAG
                     </summary>
-                    <div class="mt-4 prose prose-slate max-w-none text-gray-700">
+                    <div class="mt-4 prose prose-slate max-w-none text-black">
                         <p class="text-lg"><strong>Weekly Goal:</strong> To solve the agent "amnesia problem." You will
                             learn the difference between short-term conversational memory and long-term knowledge
                             memory. By the end of this week, you will understand and build the most critical pattern in
@@ -294,7 +288,7 @@ while not goal_achieved:
 
                         <hr class="my-4">
 
-                        <h3 class="font-semibold text-lg text-gray-800">Module 2.1: The Amnesia Problem (Short-Term
+                        <h3 class="font-semibold text-lg text-black">Module 2.1: The Amnesia Problem (Short-Term
                             Memory)</h3>
                         <p><strong>Concept:</strong> We'll start by defining the problem. LLMs are, by default,
                             stateless. Every API call is completely independent, like a curl request to a REST API. It
@@ -312,9 +306,9 @@ while not goal_achieved:
                                 conversation.</p>
                         </div>
 
-                        <div class="bg-blue-50 border-l-4 border-blue-400 p-4 my-4 rounded">
-                            <h4 class="font-semibold text-blue-800 mb-2">Key Learning:</h4>
-                            <ul class="list-disc pl-5 text-blue-700">
+                        <div class="bg-green-50 border-l-4 border-green-500 p-4 my-4 rounded">
+                            <h4 class="font-semibold text-green-800 mb-2">Key Learning:</h4>
+                            <ul class="list-disc pl-5 text-green-700">
                                 <li><strong>Problem:</strong> The history list will eventually grow too large and
                                     overflow the LLM's context window (its "RAM"). This is expensive, slow, and will
                                     eventually fail.</li>
@@ -333,7 +327,7 @@ while not goal_achieved:
                                 window a tangible, physical bug that you, the developer, must now solve.</p>
                         </div>
 
-                        <h3 class="font-semibold text-lg text-gray-800 mt-6">Module 2.2: Long-Term Memory (Embeddings &
+                        <h3 class="font-semibold text-lg text-black mt-6">Module 2.2: Long-Term Memory (Embeddings &
                             Vector Databases)</h3>
                         <p><strong>Concept:</strong> Now that we've proven our agent can't "remember" large files, we'll
                             introduce the solution: Vector Databases. To understand them, we must first understand
@@ -347,7 +341,7 @@ while not goal_achieved:
                                 the whole file every time. It runs the file content through a hash function (SHA-1) to
                                 create a unique, fixed-size signature (the "hash").</p>
                             <pre
-                                class="bg-gray-100 p-3 rounded text-sm"><code>"Hello, World!" -> a591a6d40bf420404a011733cfb7b190d62c65bf</code></pre>
+                                class="bg-white border border-gray-200 p-3 rounded text-sm"><code>"Hello, World!" -> a591a6d40bf420404a011733cfb7b190d62c65bf</code></pre>
                             <p>An <strong>Embedding Model</strong> is just a "hash function" for meaning (semantics). It
                                 turns text into a "semantic hash" (a vector) so that similar-meaning texts have
                                 similar-looking vectors.</p>
@@ -358,7 +352,7 @@ while not goal_achieved:
                             <p>A <strong>SQL DB</strong> finds literal matches. If you search for "developer," it will
                                 not find "software engineer."</p>
                             <pre
-                                class="bg-gray-100 p-3 rounded text-sm mt-2"><code>SELECT * FROM docs WHERE content LIKE '%developer%';</code></pre>
+                                class="bg-white border border-gray-200 p-3 rounded text-sm mt-2"><code>SELECT * FROM docs WHERE content LIKE '%developer%';</code></pre>
                             <p>A <strong>Vector DB</strong> finds conceptual or semantic matches. If you search for
                                 "developer," it will find "software engineer," "coder," and "programmer" because their
                                 "semantic hashes" (vectors) are numerically close in the database.</p>
@@ -381,7 +375,21 @@ results = db.query(query_text="What is the feline doing?")</code></pre>
                                 search by meaning.</p>
                         </div>
 
-                        <h3 class="font-semibold text-lg text-gray-800 mt-6">Module 2.3: The "Chat with your Docs" Agent
+                        <div class="bg-green-50 border-l-4 border-green-500 p-4 my-4 rounded">
+                            <h4 class="font-semibold text-green-800 mb-2">Key Learning:</h4>
+                            <ul class="list-disc pl-5 text-green-700">
+                                <li>Embeddings are "semantic hashes" that turn text into numerical vectors representing
+                                    meaning.</li>
+                                <li>Vector databases enable semantic search - finding content by meaning rather than
+                                    exact word matches.</li>
+                                <li>This solves the agent memory problem by allowing agents to retrieve relevant
+                                    information from large datasets.</li>
+                                <li>Vector search finds "software engineer" when you search for "developer" because
+                                    their embeddings are numerically similar.</li>
+                            </ul>
+                        </div>
+
+                        <h3 class="font-semibold text-lg text-black mt-6">Module 2.3: The "Chat with your Docs" Agent
                             (RAG)</h3>
                         <p><strong>Concept:</strong> This is the payoff. We will now combine our agent loop (Week 1)
                             with our new vector database (Module 2.2) to build a <strong>Retrieval-Augmented Generation
@@ -396,16 +404,16 @@ results = db.query(query_text="What is the feline doing?")</code></pre>
                                 answer. It's asked to find the answer and summarize it.</p>
                         </div>
 
-                        <div class="bg-purple-50 border-l-4 border-purple-400 p-4 my-4 rounded">
-                            <h4 class="font-semibold text-purple-800 mb-3">The RAG Flow (This is the most important
+                        <div class="bg-white border-l-4 border-gray-600 p-4 my-4 rounded">
+                            <h4 class="font-semibold text-black mb-3">The RAG Flow (This is the most important
                                 part):</h4>
-                            <div class="space-y-3 text-purple-700">
+                            <div class="space-y-3 text-black">
                                 <div><strong>User Query:</strong> "What is Lyzr's AgentMesh?"</div>
                                 <div>
                                     <strong>Step 1: Retrieve (The SELECT):</strong> The agent does not ask the LLM. It
                                     first asks the Vector DB.
                                     <pre
-                                        class="bg-purple-100 p-2 rounded text-sm mt-1"><code>context_chunks = db.query("What is Lyzr's AgentMesh?")</code></pre>
+                                        class="bg-white border border-gray-200 p-2 rounded text-sm mt-1"><code>context_chunks = db.query("What is Lyzr's AgentMesh?")</code></pre>
                                 </div>
                                 <div><strong>Step 2: Augment (The "Context Stuffing"):</strong> The agent takes the user
                                     query and stuffs the retrieved text chunks into a new prompt.</div>
@@ -414,8 +422,8 @@ results = db.query(query_text="What is the feline doing?")</code></pre>
                             </div>
                         </div>
 
-                        <div class="bg-gray-50 p-4 rounded-lg my-4">
-                            <h5 class="font-semibold text-gray-800 mb-2">Example Augmented Prompt:</h5>
+                        <div class="bg-white border border-gray-200 p-4 rounded-lg my-4">
+                            <h5 class="font-semibold text-black mb-2">Example Augmented Prompt:</h5>
                             <pre class="bg-gray-900 text-gray-100 p-4 rounded text-sm overflow-x-auto"><code>"You are a helpful assistant. Using ONLY the context below, answer the user's question.
 
 Context:
@@ -431,7 +439,7 @@ What is Lyzr's AgentMesh?"</code></pre>
                             <p><strong>Task:</strong> You will build a complete RAG agent from scratch.</p>
 
                             <div class="mt-3">
-                                <h5 class="font-semibold text-green-700 mb-2">Requirements:</h5>
+                                <h5 class="font-semibold text-black mb-2">Requirements:</h5>
                                 <ol class="list-decimal pl-5 space-y-2">
                                     <li>We will provide a <code>lyzr_about.txt</code> file.</li>
                                     <li>Your script will first <strong>index the file</strong>: read it, split it into
@@ -449,15 +457,30 @@ What is Lyzr's AgentMesh?"</code></pre>
                                     solved the memory problem and built the most in-demand agentic system.</p>
                             </div>
                         </div>
+
+                        <div class="bg-green-50 border-l-4 border-green-500 p-4 my-4 rounded">
+                            <h4 class="font-semibold text-green-800 mb-2">Key Learning:</h4>
+                            <ul class="list-disc pl-5 text-green-700">
+                                <li>RAG (Retrieval-Augmented Generation) combines vector search with LLM generation to
+                                    create "open-book" agents.</li>
+                                <li>The RAG flow has 3 steps: Retrieve relevant chunks, Augment the prompt with context,
+                                    Generate the final answer.</li>
+                                <li>RAG agents can answer questions about private data that wasn't in the LLM's training
+                                    set.</li>
+                                <li>This pattern solves the agent memory problem and enables "Chat with your Docs"
+                                    functionality.</li>
+                                <li>RAG is the most in-demand agentic system pattern in production environments.</li>
+                            </ul>
+                        </div>
                     </div>
                 </details>
 
                 <!-- Week 3 -->
-                <details class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-                    <summary class="text-xl font-semibold text-gray-800">
+                <details class="bg-white border border-gray-200 p-6 rounded-lg shadow-sm border border-gray-200">
+                    <summary class="text-xl font-semibold text-black">
                         Week 3: Building an Agent Team – Multi-Agent Orchestration
                     </summary>
-                    <div class="mt-4 prose prose-slate max-w-none text-gray-700">
+                    <div class="mt-4 prose prose-slate max-w-none text-black">
                         <p class="text-lg"><strong>Weekly Goal:</strong> To scale our systems by moving from a single
                             "God" agent to a collaborative team of specialized agents. You will learn the core patterns
                             of multi-agent design and orchestrate a workflow, setting the stage for building true "super
@@ -465,7 +488,7 @@ What is Lyzr's AgentMesh?"</code></pre>
 
                         <hr class="my-4">
 
-                        <h3 class="font-semibold text-lg text-gray-800">Module 3.1: The "God Agent" Problem</h3>
+                        <h3 class="font-semibold text-lg text-black">Module 3.1: The "God Agent" Problem</h3>
                         <p><strong>Concept:</strong> We'll start with the problem. Our RAG agent from Week 2 is
                             powerful, but what happens when we ask it to do more? "Chat with my docs, and search the
                             web, and write a blog post, and then send me an email." The agent's prompt becomes a
@@ -492,18 +515,19 @@ What is Lyzr's AgentMesh?"</code></pre>
                                 responsibility.</p>
                         </div>
 
-                        <div class="bg-blue-50 border-l-4 border-blue-400 p-4 my-4 rounded">
-                            <h4 class="font-semibold text-blue-800 mb-2">Key Learning:</h4>
-                            <ul class="list-disc pl-5 text-blue-700">
+                        <div class="bg-green-50 border-l-4 border-green-500 p-4 my-4 rounded">
+                            <h4 class="font-semibold text-green-800 mb-2">Key Learning:</h4>
+                            <ul class="list-disc pl-5 text-green-700">
                                 <li>Don't build one agent that does 10 things.</li>
                                 <li>Build 10 specialized agents that each do one thing perfectly.</li>
                                 <li>The new challenge isn't building agents; it's managing them. This is the problem of
-                                    <strong>Orchestration</strong>.
+                                </li>
+                                <strong>Orchestration</strong>.
                                 </li>
                             </ul>
                         </div>
 
-                        <h3 class="font-semibold text-lg text-gray-800 mt-6">Module 3.2: The Conductor and the Orchestra
+                        <h3 class="font-semibold text-lg text-black mt-6">Module 3.2: The Conductor and the Orchestra
                             (Orchestration Patterns)</h3>
                         <p><strong>Concept:</strong> Now that we have our team of specialist agents (the "orchestra"),
                             we need a "conductor" to tell them what to do and when. This conductor is the
@@ -511,67 +535,67 @@ What is Lyzr's AgentMesh?"</code></pre>
                             Lyzr uses.
                         </p>
 
-                        <div class="bg-gray-100 p-4 rounded-lg my-4 text-center">
+                        <div class="bg-white border border-gray-200 p-4 rounded-lg my-4 text-center">
                             <div class="text-sm text-gray-600 mb-2">Simple Orchestration Diagram:</div>
                             <div class="font-mono text-xs">
                                 <div class="bg-blue-200 p-2 rounded mb-2 inline-block">Manager Agent</div>
                                 <div class="text-gray-500">↙ ↓ ↘</div>
                                 <div class="flex justify-center space-x-4 mt-2">
-                                    <div class="bg-green-200 p-2 rounded text-xs">Worker 1</div>
-                                    <div class="bg-green-200 p-2 rounded text-xs">Worker 2</div>
-                                    <div class="bg-green-200 p-2 rounded text-xs">Worker 3</div>
+                                    <div class="bg-white border border-gray-200 p-2 rounded text-xs">Worker 1</div>
+                                    <div class="bg-white border border-gray-200 p-2 rounded text-xs">Worker 2</div>
+                                    <div class="bg-white border border-gray-200 p-2 rounded text-xs">Worker 3</div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="grid md:grid-cols-2 gap-4 my-6">
-                            <div class="bg-orange-50 border-l-4 border-orange-400 p-4 rounded">
-                                <h4 class="font-semibold text-orange-800 mb-2">Pattern 1: The "Managerial"
+                            <div class="bg-white border-l-4 border-black p-4 rounded">
+                                <h4 class="font-semibold text-black mb-2">Pattern 1: The "Managerial"
                                     (Hierarchical) Model</h4>
-                                <div class="analogy-title text-orange-700 mb-2">Analogy: A Tech Lead and Junior Devs
+                                <div class="analogy-title text-black mb-2">Analogy: A Tech Lead and Junior Devs
                                 </div>
-                                <p class="text-orange-700 text-sm">You (the user) give a complex feature request to the
+                                <p class="text-black text-sm">You (the user) give a complex feature request to the
                                     Tech Lead (the Manager Agent). The Lead breaks it down into smaller, concrete tasks.
                                 </p>
-                                <div class="bg-orange-100 p-2 rounded mt-2 text-xs font-mono">
+                                <div class="bg-white border border-gray-200 p-2 rounded mt-2 text-xs font-mono">
                                     <div>"Okay, I need a 'frontend' task, a 'backend' task, and a 'database' task."
                                     </div>
                                 </div>
-                                <p class="text-orange-700 text-sm mt-2">The Lead then delegates each task to the right
+                                <p class="text-black text-sm mt-2">The Lead then delegates each task to the right
                                     specialist:</p>
-                                <pre class="bg-orange-100 p-2 rounded mt-1 text-xs"><code>BackendAgent.work(task="create the /api/user endpoint")
+                                <pre class="bg-white border border-gray-200 p-2 rounded mt-1 text-xs"><code>BackendAgent.work(task="create the /api/user endpoint")
 FrontendAgent.work(task="build the login form")</code></pre>
-                                <p class="text-orange-700 text-sm mt-2"><strong>Use Case:</strong> Perfect for dynamic,
+                                <p class="text-black text-sm mt-2"><strong>Use Case:</strong> Perfect for dynamic,
                                     complex problems where you don't know all the steps in advance (e.g., "Plan me a
                                     3-day trip to Tokyo").</p>
                             </div>
 
-                            <div class="bg-indigo-50 border-l-4 border-indigo-400 p-4 rounded">
-                                <h4 class="font-semibold text-indigo-800 mb-2">Pattern 2: The "DAG" (Sequential) Model
+                            <div class="bg-white border-l-4 border-gray-500 p-4 rounded">
+                                <h4 class="font-semibold text-black mb-2">Pattern 2: The "DAG" (Sequential) Model
                                 </h4>
-                                <div class="analogy-title text-indigo-700 mb-2">Analogy: A CI/CD Pipeline
+                                <div class="analogy-title text-black mb-2">Analogy: A CI/CD Pipeline
                                     (.gitlab-ci.yml)</div>
-                                <p class="text-indigo-700 text-sm">This is a fixed, predictable workflow. The steps are
+                                <p class="text-black text-sm">This is a fixed, predictable workflow. The steps are
                                     known in advance, and one step must finish before the next can begin.</p>
-                                <div class="bg-indigo-100 p-2 rounded mt-2 text-xs font-mono">
+                                <div class="bg-white border border-gray-200 p-2 rounded mt-2 text-xs font-mono">
                                     <div>lint-job → test-job → build-job → deploy-job</div>
                                 </div>
-                                <p class="text-indigo-700 text-sm mt-2">In this model, there's no dynamic "manager."
+                                <p class="text-black text-sm mt-2">In this model, there's no dynamic "manager."
                                     It's a predefined graph of operations.</p>
-                                <ul class="text-indigo-700 text-sm mt-2 space-y-1">
+                                <ul class="text-black text-sm mt-2 space-y-1">
                                     <li>• Input goes to ResearchAgent.</li>
                                     <li>• Output of ResearchAgent → WritingAgent.</li>
                                     <li>• Output of WritingAgent → ReviewAgent.</li>
                                 </ul>
-                                <p class="text-indigo-700 text-sm mt-2"><strong>Use Case:</strong> Perfect for reliable,
+                                <p class="text-black text-sm mt-2"><strong>Use Case:</strong> Perfect for reliable,
                                     repeatable business processes (e.g., "Take this blog post, generate SEO keywords,
                                     then post it to our blog").</p>
                             </div>
                         </div>
 
-                        <div class="bg-blue-50 border-l-4 border-blue-400 p-4 my-4 rounded">
-                            <h4 class="font-semibold text-blue-800 mb-2">Key Learning:</h4>
-                            <ul class="list-disc pl-5 text-blue-700">
+                        <div class="bg-green-50 border-l-4 border-green-500 p-4 my-4 rounded">
+                            <h4 class="font-semibold text-green-800 mb-2">Key Learning:</h4>
+                            <ul class="list-disc pl-5 text-green-700">
                                 <li><strong>Managerial (Dynamic):</strong> Use for creative tasks and unknown problems.
                                 </li>
                                 <li><strong>DAG (Sequential):</strong> Use for fixed, reliable, and auditable workflows.
@@ -579,7 +603,7 @@ FrontendAgent.work(task="build the login form")</code></pre>
                             </ul>
                         </div>
 
-                        <h3 class="font-semibold text-lg text-gray-800 mt-6">Module 3.3: "Hello, Team!" – Building a
+                        <h3 class="font-semibold text-lg text-black mt-6">Module 3.3: "Hello, Team!" – Building a
                             3-Agent Workflow</h3>
                         <p><strong>Concept:</strong> We'll build a "blog post" generator using the <strong>DAG
                                 (Sequential) Model</strong> because it's the easiest to build from scratch. This lab
@@ -621,9 +645,9 @@ FrontendAgent.work(task="build the login form")</code></pre>
                                         </ul>
                                     </div>
 
-                                    <div class="bg-purple-50 p-3 rounded border-l-4 border-purple-400">
-                                        <h6 class="font-semibold text-purple-800"><code>review_agent.py</code>:</h6>
-                                        <ul class="text-purple-700 text-sm mt-1 space-y-1">
+                                    <div class="bg-white border border-gray-200 p-3 rounded border-l-4 border-black">
+                                        <h6 class="font-semibold text-black"><code>review_agent.py</code>:</h6>
+                                        <ul class="text-black text-sm mt-1 space-y-1">
                                             <li>• Takes a <code>draft</code> as input.</li>
                                             <li>• Has no tools. Its job is to review and give a score.</li>
                                             <li>• <strong>Output:</strong> A JSON object with a rating and comments
@@ -633,22 +657,23 @@ FrontendAgent.work(task="build the login form")</code></pre>
                                         </ul>
                                     </div>
 
-                                    <div class="bg-gray-50 p-3 rounded border-l-4 border-gray-400">
-                                        <h6 class="font-semibold text-gray-800"><code>main.py</code> (The Orchestrator):
+                                    <div class="bg-white border border-gray-200 p-3 rounded border-l-4 border-black">
+                                        <h6 class="font-semibold text-black"><code>main.py</code> (The Orchestrator):
                                         </h6>
-                                        <p class="text-gray-700 text-sm mt-1">Your main script will call each agent in
+                                        <p class="text-black text-sm mt-1">Your main script will call each agent in
                                             order, take its output, and use it as the input for the next agent, printing
                                             the final result.</p>
                                     </div>
                                 </div>
 
-                                <div class="bg-red-50 border-l-4 border-red-400 p-4 my-4 rounded">
-                                    <h5 class="font-semibold text-red-800 mb-2">Final "Aha!" Moment:</h5>
-                                    <p class="text-red-700 text-sm">At the end of this lab, we'll pose a question: "This
+                                <div class="bg-green-50 border-l-4 border-green-500 p-4 my-4 rounded">
+                                    <h5 class="font-semibold text-black mb-2">Final "Aha!" Moment:</h5>
+                                    <p class="text-black text-sm">At the end of this lab, we'll pose a question:
+                                        "This
                                         works great, but our <code>research_agent</code> and <code>writing_agent</code>
                                         both needed to be told about the Google Search tool. What if we had 20 agents
                                         and 10 tools? How do we manage that?"</p>
-                                    <p class="text-red-700 text-sm mt-2">This <strong>"N x M" problem</strong> (20
+                                    <p class="text-black text-sm mt-2">This <strong>"N x M" problem</strong> (20
                                         agents x 10 tools) is the perfect lead-in to Week 4, where we introduce
                                         <strong>MCP (Model Context Protocol)</strong> as the elegant solution.
                                     </p>
@@ -659,11 +684,11 @@ FrontendAgent.work(task="build the login form")</code></pre>
                 </details>
 
                 <!-- Week 4 -->
-                <details class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-                    <summary class="text-xl font-semibold text-gray-800">
+                <details class="bg-white border border-gray-200 p-6 rounded-lg shadow-sm border border-gray-200">
+                    <summary class="text-xl font-semibold text-black">
                         Week 4: The Lyzr Deep Dive – From Prototype to Production "Super Agent"
                     </summary>
-                    <div class="mt-4 prose prose-slate max-w-none text-gray-700">
+                    <div class="mt-4 prose prose-slate max-w-none text-black">
                         <p class="text-lg"><strong>Weekly Goal:</strong> To bridge the gap from a "from-scratch"
                             prototype to a scalable, production-grade agentic system. You will solve the "N x M" tool
                             integration problem using the Model Context Protocol (MCP) and synthesize all your skills
@@ -672,7 +697,7 @@ FrontendAgent.work(task="build the login form")</code></pre>
 
                         <hr class="my-4">
 
-                        <h3 class="font-semibold text-lg text-gray-800">Module 4.1: The "Integration Hell" Problem (The
+                        <h3 class="font-semibold text-lg text-black">Module 4.1: The "Integration Hell" Problem (The
                             "N x M" Problem)</h3>
                         <p><strong>Concept:</strong> We'll start by formalizing the "Aha!" moment from Lab 3.3. In our
                             simple 3-agent team, we already saw a problem: how do we tell all our agents about the tools
@@ -684,17 +709,17 @@ FrontendAgent.work(task="build the login form")</code></pre>
                             <span class="analogy-title">Developer Analogy: Hard-Coded fetch vs. a Service Mesh (like
                                 gRPC or Istio)</span>
                             <div class="space-y-3">
-                                <div class="bg-red-50 p-3 rounded border-l-4 border-red-400">
-                                    <h5 class="font-semibold text-red-800">Our "From-Scratch" Way (Weeks 1-3):</h5>
-                                    <p class="text-red-700 text-sm">This is like hard-coding
+                                <div class="bg-white border border-gray-200 p-3 rounded border-l-4 border-gray-500">
+                                    <h5 class="font-semibold text-black">Our "From-Scratch" Way (Weeks 1-3):</h5>
+                                    <p class="text-black text-sm">This is like hard-coding
                                         <code>fetch('http://weather-api.com/...')</code> inside every single one of your
                                         microservices. It works, but it's brittle. What happens when the API URL
                                         changes? You have to update 20 services.
                                     </p>
                                 </div>
-                                <div class="bg-green-50 p-3 rounded border-l-4 border-green-400">
-                                    <h5 class="font-semibold text-green-800">The "Production" Way (MCP):</h5>
-                                    <p class="text-green-700 text-sm">We introduce a "service mesh." You build your tool
+                                <div class="bg-white border border-gray-200 p-3 rounded border-l-4 border-black">
+                                    <h5 class="font-semibold text-black">The "Production" Way (MCP):</h5>
+                                    <p class="text-black text-sm">We introduce a "service mesh." You build your tool
                                         <strong>once</strong> as an independent "service." All your agents ("clients")
                                         just connect to the mesh, which handles service discovery. The agent simply
                                         says, "I need the 'weather' service," and the mesh connects them. The agent
@@ -705,9 +730,9 @@ FrontendAgent.work(task="build the login form")</code></pre>
                             </div>
                         </div>
 
-                        <div class="bg-blue-50 border-l-4 border-blue-400 p-4 my-4 rounded">
-                            <h4 class="font-semibold text-blue-800 mb-2">Key Learning:</h4>
-                            <ul class="list-disc pl-5 text-blue-700 space-y-1">
+                        <div class="bg-green-50 border-l-4 border-green-500 p-4 my-4 rounded">
+                            <h4 class="font-semibold text-green-800 mb-2">Key Learning:</h4>
+                            <ul class="list-disc pl-5 text-green-700 space-y-1">
                                 <li><strong>MCP (Model Context Protocol)</strong> is an open standard that decouples
                                     agents from their tools.</li>
                                 <li>Tools are exposed as <strong>"MCP Servers."</strong></li>
@@ -718,7 +743,7 @@ FrontendAgent.work(task="build the login form")</code></pre>
                             </ul>
                         </div>
 
-                        <h3 class="font-semibold text-lg text-gray-800 mt-6">Module 4.2: Refactoring Our Team with MCP
+                        <h3 class="font-semibold text-lg text-black mt-6">Module 4.2: Refactoring Our Team with MCP
                         </h3>
                         <p><strong>Concept:</strong> We will take our "Assembly Line" blog post generator from Lab 3.3
                             and refactor it to use the MCP standard. This will make the "N x M" problem and its solution
@@ -737,14 +762,15 @@ FrontendAgent.work(task="build the login form")</code></pre>
                             <p><strong>Task:</strong> You will refactor your 3-agent workflow from Week 3.</p>
 
                             <div class="grid md:grid-cols-2 gap-4 mt-4">
-                                <div class="bg-red-50 p-4 rounded border-l-4 border-red-400">
-                                    <h5 class="font-semibold text-red-800 mb-2">"Before" (Our Lab 3.3 code):</h5>
-                                    <p class="text-red-700 text-sm"><code>research_agent.py</code> has the Google Search
+                                <div class="bg-white border border-gray-200 p-4 rounded border-l-4 border-gray-500">
+                                    <h5 class="font-semibold text-black mb-2">"Before" (Our Lab 3.3 code):</h5>
+                                    <p class="text-black text-sm"><code>research_agent.py</code> has the Google
+                                        Search
                                         tool definition hard-coded in its system prompt.</p>
                                 </div>
-                                <div class="bg-green-50 p-4 rounded border-l-4 border-green-400">
-                                    <h5 class="font-semibold text-green-800 mb-2">"After" (Our Lab 4.2 code):</h5>
-                                    <ul class="text-green-700 text-sm space-y-1">
+                                <div class="bg-white border border-gray-200 p-4 rounded border-l-4 border-black">
+                                    <h5 class="font-semibold text-black mb-2">"After" (Our Lab 4.2 code):</h5>
+                                    <ul class="text-black text-sm space-y-1">
                                         <li>• We will provide a separate script, <code>tool_server.py</code>, that runs
                                             a simple MCP Server exposing the Google Search tool.</li>
                                         <li>• You will <strong>delete</strong> the tool definition from your
@@ -755,58 +781,57 @@ FrontendAgent.work(task="build the login form")</code></pre>
                                 </div>
                             </div>
 
-                            <p
-                                class="mt-4 p-3 bg-yellow-50 border-l-4 border-yellow-400 text-yellow-800 text-sm rounded">
+                            <p class="mt-4 p-3 bg-white border-l-4 border-black text-black text-sm rounded">
                                 <strong>Result:</strong> Your agent's prompt is now clean and focused only on its task.
                                 And any other agent we build can now also connect to <code>tool_server</code> and use
                                 Google Search for free. We have solved the "N x M" problem.
                             </p>
                         </div>
 
-                        <h3 class="font-semibold text-lg text-gray-800 mt-6">Module 4.3: Capstone Project – Building
+                        <h3 class="font-semibold text-lg text-black mt-6">Module 4.3: Capstone Project – Building
                             "Diane-Lite" (An HR Super Agent)</h3>
                         <p><strong>Concept:</strong> This is the final project. You will synthesize everything you've
                             learned over the last four weeks—the agent loop, RAG, multi-agent orchestration, and tool
                             use—to build a simplified version of Lyzr's <strong>Diane for HR</strong> super agent.</p>
 
-                        <div class="bg-purple-50 border-l-4 border-purple-400 p-4 my-4 rounded">
-                            <h4 class="font-semibold text-purple-800 mb-2">The Project Brief:</h4>
-                            <p class="text-purple-700 text-sm">Your task is to build "Diane-Lite," an HR assistant that
+                        <div class="bg-white border-l-4 border-black p-4 my-4 rounded border border-gray-200">
+                            <h4 class="font-semibold text-black mb-2">The Project Brief:</h4>
+                            <p class="text-black text-sm">Your task is to build "Diane-Lite," an HR assistant that
                                 can help a hiring manager. The user must be able to make a single, high-level request,
                                 and your agent team must orchestrate the entire workflow to get the answer.</p>
                         </div>
 
-                        <div class="bg-gray-100 p-4 rounded-lg my-4">
-                            <h4 class="font-semibold text-gray-800 mb-3">The Architecture (Managerial Model):</h4>
-                            <p class="text-gray-700 text-sm mb-3">You will build a multi-agent system using the
+                        <div class="bg-white border border-gray-200 p-4 rounded-lg my-4">
+                            <h4 class="font-semibold text-black mb-3">The Architecture (Managerial Model):</h4>
+                            <p class="text-black text-sm mb-3">You will build a multi-agent system using the
                                 "Managerial" (Hierarchical) model from Week 3.</p>
 
                             <div class="grid gap-3">
-                                <div class="bg-blue-200 p-3 rounded">
-                                    <h6 class="font-semibold text-blue-900"><strong>Diane-Manager</strong> (The
+                                <div class="bg-white border border-gray-200 p-3 rounded">
+                                    <h6 class="font-semibold text-black"><strong>Diane-Manager</strong> (The
                                         Conductor):</h6>
-                                    <p class="text-blue-800 text-sm">The only agent the user talks to. It takes the
+                                    <p class="text-black text-sm">The only agent the user talks to. It takes the
                                         goal, breaks it down, and delegates tasks to its specialist workers.</p>
                                 </div>
                                 <div class="flex space-x-3">
-                                    <div class="bg-green-200 p-3 rounded flex-1">
-                                        <h6 class="font-semibold text-green-900"><strong>HR-Policy-Agent</strong>
+                                    <div class="bg-white border border-gray-200 p-3 rounded flex-1">
+                                        <h6 class="font-semibold text-black"><strong>HR-Policy-Agent</strong>
                                             (Worker):</h6>
-                                        <p class="text-green-800 text-sm">A RAG agent (from Week 2) that is connected to
+                                        <p class="text-black text-sm">A RAG agent (from Week 2) that is connected to
                                             a vector store of <code>hr_policy.pdf</code>. Its only job is to answer
                                             questions about company policy.</p>
                                     </div>
-                                    <div class="bg-orange-200 p-3 rounded flex-1">
-                                        <h6 class="font-semibold text-orange-900"><strong>Resume-Screener-Agent</strong>
+                                    <div class="bg-white border border-gray-200 p-3 rounded flex-1">
+                                        <h6 class="font-semibold text-black"><strong>Resume-Screener-Agent</strong>
                                             (Worker):</h6>
-                                        <p class="text-orange-800 text-sm">A RAG agent that is connected to a vector
+                                        <p class="text-black text-sm">A RAG agent that is connected to a vector
                                             store of <code>resumes/</code>. Its only job is to find candidates that
                                             match a job description.</p>
                                     </div>
-                                    <div class="bg-purple-200 p-3 rounded flex-1">
-                                        <h6 class="font-semibold text-purple-900"><strong>Calendar-Agent</strong>
+                                    <div class="bg-white border border-gray-200 p-3 rounded flex-1">
+                                        <h6 class="font-semibold text-black"><strong>Calendar-Agent</strong>
                                             (Worker):</h6>
-                                        <p class="text-purple-800 text-sm">A simple agent (from Week 1) that has a
+                                        <p class="text-black text-sm">A simple agent (from Week 1) that has a
                                             single tool: <code>find_available_interview_slot(date_range)</code>.</p>
                                     </div>
                                 </div>
@@ -819,62 +844,61 @@ FrontendAgent.work(task="build the login form")</code></pre>
                                 test" with a complex, high-level user prompt.</p>
 
                             <div class="bg-gray-900 text-gray-100 p-4 rounded-lg my-4">
-                                <h5 class="text-yellow-400 font-semibold mb-2">User Prompt:</h5>
+                                <h5 class="text-gray-300 font-semibold mb-2">User Prompt:</h5>
                                 <p class="text-sm italic">"Hi, I'm hiring a 'Senior Python Developer.' First, what is
                                     our company's policy on remote work? Second, please find the top 3 candidates for
                                     that role from our resume folder and book a 1-hour interview slot for them next
                                     Tuesday."</p>
                             </div>
 
-                            <div
-                                class="bg-gradient-to-r from-blue-50 to-purple-50 border-l-4 border-blue-400 p-4 my-4 rounded">
-                                <h5 class="font-semibold text-blue-800 mb-3">What you will watch (The "Aha!" Moment):
+                            <div class="bg-green-50 border-l-4 border-green-500 p-4 my-4 rounded">
+                                <h5 class="font-semibold text-black mb-3">What you will watch (The "Aha!" Moment):
                                 </h5>
-                                <p class="text-blue-700 text-sm mb-3">You will see the <strong>Diane-Manager</strong>
+                                <p class="text-black text-sm mb-3">You will see the <strong>Diane-Manager</strong>
                                     agent's "thoughts" as it orchestrates the entire process:</p>
 
                                 <div class="space-y-2 text-sm">
-                                    <div class="bg-white p-2 rounded border-l-2 border-blue-300">
-                                        <strong class="text-blue-900">Manager Thought:</strong> <span
-                                            class="text-blue-700">"The user has three requests. I'll do them in order.
+                                    <div class="bg-white border border-gray-200 p-2 rounded border-l-2 border-black">
+                                        <strong class="text-black">Manager Thought:</strong> <span
+                                            class="text-black">"The user has three requests. I'll do them in order.
                                             First, the policy question."</span>
                                     </div>
-                                    <div class="bg-green-100 p-2 rounded">
-                                        <strong class="text-green-900">Manager → HR-Policy-Agent:</strong> <span
-                                            class="text-green-700">"What is the policy on remote work?"</span><br>
-                                        <strong class="text-green-900">HR-Policy-Agent → Manager:</strong> <span
-                                            class="text-green-700">(Returns the RAG-generated answer).</span>
+                                    <div class="bg-white border border-gray-200 p-2 rounded">
+                                        <strong class="text-black">Manager → HR-Policy-Agent:</strong> <span
+                                            class="text-black">"What is the policy on remote work?"</span><br>
+                                        <strong class="text-black">HR-Policy-Agent → Manager:</strong> <span
+                                            class="text-black">(Returns the RAG-generated answer).</span>
                                     </div>
-                                    <div class="bg-white p-2 rounded border-l-2 border-blue-300">
-                                        <strong class="text-blue-900">Manager Thought:</strong> <span
-                                            class="text-blue-700">"Great. Now for the resumes. I'll call the
+                                    <div class="bg-white border border-gray-200 p-2 rounded border-l-2 border-black">
+                                        <strong class="text-black">Manager Thought:</strong> <span
+                                            class="text-black">"Great. Now for the resumes. I'll call the
                                             screener."</span>
                                     </div>
-                                    <div class="bg-orange-100 p-2 rounded">
-                                        <strong class="text-orange-900">Manager → Resume-Screener-Agent:</strong> <span
-                                            class="text-orange-700">"Find top 3 candidates for 'Senior Python
+                                    <div class="bg-white border border-gray-200 p-2 rounded">
+                                        <strong class="text-black">Manager → Resume-Screener-Agent:</strong> <span
+                                            class="text-black">"Find top 3 candidates for 'Senior Python
                                             Developer'."</span><br>
-                                        <strong class="text-orange-900">Resume-Screener-Agent → Manager:</strong> <span
-                                            class="text-orange-700">(Returns ["candidate_A.pdf", "candidate_B.pdf",
+                                        <strong class="text-black">Resume-Screener-Agent → Manager:</strong> <span
+                                            class="text-black">(Returns ["candidate_A.pdf", "candidate_B.pdf",
                                             "candidate_C.pdf"]).</span>
                                     </div>
-                                    <div class="bg-white p-2 rounded border-l-2 border-blue-300">
-                                        <strong class="text-blue-900">Manager Thought:</strong> <span
-                                            class="text-blue-700">"Got the candidates. Now I'll find a calendar
+                                    <div class="bg-white border border-gray-200 p-2 rounded border-l-2 border-black">
+                                        <strong class="text-black">Manager Thought:</strong> <span
+                                            class="text-black">"Got the candidates. Now I'll find a calendar
                                             slot."</span>
                                     </div>
-                                    <div class="bg-purple-100 p-2 rounded">
-                                        <strong class="text-purple-900">Manager → Calendar-Agent:</strong> <span
-                                            class="text-purple-700">"Find a 1-hour slot next Tuesday."</span><br>
-                                        <strong class="text-purple-900">Calendar-Agent → Manager:</strong> <span
-                                            class="text-purple-700">(Returns {"slot": "Tuesday, 3:00 PM - 4:00
+                                    <div class="bg-white border border-gray-200 p-2 rounded">
+                                        <strong class="text-black">Manager → Calendar-Agent:</strong> <span
+                                            class="text-black">"Find a 1-hour slot next Tuesday."</span><br>
+                                        <strong class="text-black">Calendar-Agent → Manager:</strong> <span
+                                            class="text-black">(Returns {"slot": "Tuesday, 3:00 PM - 4:00
                                             PM"}).</span>
                                     </div>
-                                    <div class="bg-blue-200 p-3 rounded">
-                                        <strong class="text-blue-900">Manager → User:</strong> <span
-                                            class="text-blue-800">(Generates the final, comprehensive
+                                    <div class="bg-white border border-gray-200 p-3 rounded">
+                                        <strong class="text-black">Manager → User:</strong> <span
+                                            class="text-black">(Generates the final, comprehensive
                                             answer):</span><br>
-                                        <div class="mt-2 italic text-blue-700 text-xs">
+                                        <div class="mt-2 italic text-black text-xs">
                                             "Here is the information you requested:<br>
                                             • Our remote work policy is...<br>
                                             • The top 3 candidates are: Candidate A, B, and C.<br>
@@ -886,28 +910,28 @@ FrontendAgent.work(task="build the login form")</code></pre>
                             </div>
                         </div>
 
-                        <h3 class="font-semibold text-lg text-gray-800 mt-6">Module 4.4: The Road Ahead</h3>
+                        <h3 class="font-semibold text-lg text-black mt-6">Module 4.4: The Road Ahead</h3>
                         <p><strong>Concept:</strong> A final wrap-up on the "so what?" of agent development. Now that
                             you can build an agent, how do you know it's good?</p>
 
                         <div class="grid md:grid-cols-3 gap-4 mt-4">
-                            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded">
-                                <h4 class="font-semibold text-yellow-800 mb-2">Evaluation:</h4>
-                                <p class="text-yellow-700 text-sm">How to test an agent. You can't just use
+                            <div class="bg-white border-l-4 border-black p-4 rounded">
+                                <h4 class="font-semibold text-black mb-2">Evaluation:</h4>
+                                <p class="text-black text-sm">How to test an agent. You can't just use
                                     <code>pytest</code> and check for <code>assert x == 5</code>. We'll discuss
                                     "AI-as-a-grader" (using one LLM to "grade" another's output).
                                 </p>
                             </div>
-                            <div class="bg-red-50 border-l-4 border-red-400 p-4 rounded">
-                                <h4 class="font-semibold text-red-800 mb-2">Safety & Guardrails:</h4>
-                                <p class="text-red-700 text-sm">What's to stop your agent from booking 100 meetings or
+                            <div class="bg-white border-l-4 border-black p-4 rounded">
+                                <h4 class="font-semibold text-black mb-2">Safety & Guardrails:</h4>
+                                <p class="text-black text-sm">What's to stop your agent from booking 100 meetings or
                                     sending an angry email? We'll talk about the importance of "human-in-the-loop"
                                     approval steps for any agent that <em>acts</em> (i.e., modifies a database, sends an
                                     email).</p>
                             </div>
-                            <div class="bg-green-50 border-l-4 border-green-400 p-4 rounded">
-                                <h4 class="font-semibold text-green-800 mb-2">The Future:</h4>
-                                <p class="text-green-700 text-sm">A final, inspiring look at the future of the "Agent
+                            <div class="bg-white border-l-4 border-black p-4 rounded">
+                                <h4 class="font-semibold text-black mb-2">The Future:</h4>
+                                <p class="text-black text-sm">A final, inspiring look at the future of the "Agent
                                     Movement."</p>
                             </div>
                         </div>
@@ -919,12 +943,12 @@ FrontendAgent.work(task="build the login form")</code></pre>
 
         <!-- Part 2: The Video -->
         <section>
-            <h2 class="text-2xl font-semibold text-gray-900 mb-4">Part 2: 3-Minute Teaching Video</h2>
-            <p class="mb-4 text-gray-700">For the video portion, I chose to teach <strong>Module 2.3: The "Chat with
+            <h2 class="text-2xl font-semibold text-black mb-4">Part 2: 3-Minute Teaching Video</h2>
+            <p class="mb-4 text-black">For the video portion, I chose to teach <strong>Module 2.3: The "Chat with
                     your Docs" Agent (RAG)</strong>. This concept is fundamental to building useful agents and provides
                 a great "aha!" moment for developers.</p>
 
-            <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <div class="bg-white border border-gray-200 p-6 rounded-lg shadow-sm border border-gray-200">
                 <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg">
                     <iframe class="w-full h-96 rounded-lg" src="https://www.youtube.com/embed/fMD4XU-ppPw?start=1"
                         title="Agent Building for Developers - RAG Tutorial" frameborder="0"
@@ -933,9 +957,9 @@ FrontendAgent.work(task="build the login form")</code></pre>
                     </iframe>
                 </div>
 
-                <div class="mt-4 p-4 bg-gray-50 rounded-lg">
-                    <h3 class="font-semibold text-gray-800 mb-2">Video Overview:</h3>
-                    <p class="text-gray-700 text-sm">This 3-minute tutorial demonstrates how to build a RAG
+                <div class="mt-4 p-4 bg-white rounded-lg">
+                    <h3 class="font-semibold text-black mb-2">Video Overview:</h3>
+                    <p class="text-black text-sm">This 3-minute tutorial demonstrates how to build a RAG
                         (Retrieval-Augmented Generation) agent from scratch, showing the "Retrieve, Augment, Generate"
                         pattern that allows agents to chat with your own documents and data.</p>
                 </div>
