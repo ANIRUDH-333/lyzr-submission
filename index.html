@@ -498,7 +498,8 @@ What is Lyzr's AgentMesh?"</code></pre>
                                 <li>Don't build one agent that does 10 things.</li>
                                 <li>Build 10 specialized agents that each do one thing perfectly.</li>
                                 <li>The new challenge isn't building agents; it's managing them. This is the problem of
-                                    <strong>Orchestration</strong>.</li>
+                                    <strong>Orchestration</strong>.
+                                </li>
                             </ul>
                         </div>
 
@@ -507,7 +508,8 @@ What is Lyzr's AgentMesh?"</code></pre>
                         <p><strong>Concept:</strong> Now that we have our team of specialist agents (the "orchestra"),
                             we need a "conductor" to tell them what to do and when. This conductor is the
                             <strong>Orchestrator Agent</strong>. We will focus on the two primary orchestration patterns
-                            Lyzr uses.</p>
+                            Lyzr uses.
+                        </p>
 
                         <div class="bg-gray-100 p-4 rounded-lg my-4 text-center">
                             <div class="text-sm text-gray-600 mb-2">Simple Orchestration Diagram:</div>
@@ -626,7 +628,8 @@ FrontendAgent.work(task="build the login form")</code></pre>
                                             <li>• Has no tools. Its job is to review and give a score.</li>
                                             <li>• <strong>Output:</strong> A JSON object with a rating and comments
                                                 (e.g.,
-                                                <code>{"rating": 8, "comments": "Good, but a bit short."}</code>).</li>
+                                                <code>{"rating": 8, "comments": "Good, but a bit short."}</code>).
+                                            </li>
                                         </ul>
                                     </div>
 
@@ -647,7 +650,8 @@ FrontendAgent.work(task="build the login form")</code></pre>
                                         and 10 tools? How do we manage that?"</p>
                                     <p class="text-red-700 text-sm mt-2">This <strong>"N x M" problem</strong> (20
                                         agents x 10 tools) is the perfect lead-in to Week 4, where we introduce
-                                        <strong>MCP (Model Context Protocol)</strong> as the elegant solution.</p>
+                                        <strong>MCP (Model Context Protocol)</strong> as the elegant solution.
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -663,85 +667,245 @@ FrontendAgent.work(task="build the login form")</code></pre>
                         <p class="text-lg"><strong>Weekly Goal:</strong> To bridge the gap from a "from-scratch"
                             prototype to a scalable, production-grade agentic system. You will solve the "N x M" tool
                             integration problem using the Model Context Protocol (MCP) and synthesize all your skills
-                            into a capstone project: building a "super agent" modeled on Lyzr's `Diane for HR`.</p>
+                            into a capstone project: building a "super agent" modeled on Lyzr's <strong>Diane for
+                                HR</strong>.</p>
 
                         <hr class="my-4">
 
                         <h3 class="font-semibold text-lg text-gray-800">Module 4.1: The "Integration Hell" Problem (The
                             "N x M" Problem)</h3>
-                        <p><strong>Concept:</strong> We formalize the "N x M" problem (20 agents needing to know about
-                            10 tools). Copy-pasting 10 tool definitions into 20 system prompts is unmaintainable. This
-                            is the "Integration Hell" that stops prototypes from becoming products.</p>
+                        <p><strong>Concept:</strong> We'll start by formalizing the "Aha!" moment from Lab 3.3. In our
+                            simple 3-agent team, we already saw a problem: how do we tell all our agents about the tools
+                            they can use? What if we have 20 agents and 10 tools? Do we copy-paste 10 tool definitions
+                            into 20 different system prompts? This is the "N x M" problem, and it's a maintenance
+                            nightmare.</p>
+
                         <div class="analogy">
-                            <span class="analogy-title">Developer Analogy: Hard-Coded `fetch` vs. a Service Mesh
-                                (gRPC)</span>
-                            <p>Our "from-scratch" way is like hard-coding `fetch('http://weather-api.com')` inside 20
-                                microservices. The **"Production" Way (MCP)** is like a <strong>Service Mesh
-                                    (gRPC/Istio)</strong>. You build your tool *once* as an independent "service." All
-                                your agents ("clients") just connect to the mesh, which handles <strong>service
-                                    discovery</strong>. The agent just says "I need the 'weather' service," and the mesh
-                                connects them. This is what the **Model Context Protocol (MCP)** does for AI agents.</p>
+                            <span class="analogy-title">Developer Analogy: Hard-Coded fetch vs. a Service Mesh (like
+                                gRPC or Istio)</span>
+                            <div class="space-y-3">
+                                <div class="bg-red-50 p-3 rounded border-l-4 border-red-400">
+                                    <h5 class="font-semibold text-red-800">Our "From-Scratch" Way (Weeks 1-3):</h5>
+                                    <p class="text-red-700 text-sm">This is like hard-coding
+                                        <code>fetch('http://weather-api.com/...')</code> inside every single one of your
+                                        microservices. It works, but it's brittle. What happens when the API URL
+                                        changes? You have to update 20 services.</p>
+                                </div>
+                                <div class="bg-green-50 p-3 rounded border-l-4 border-green-400">
+                                    <h5 class="font-semibold text-green-800">The "Production" Way (MCP):</h5>
+                                    <p class="text-green-700 text-sm">We introduce a "service mesh." You build your tool
+                                        <strong>once</strong> as an independent "service." All your agents ("clients")
+                                        just connect to the mesh, which handles service discovery. The agent simply
+                                        says, "I need the 'weather' service," and the mesh connects them. The agent
+                                        doesn't know or care where the service lives. This is what the <strong>Model
+                                            Context Protocol (MCP)</strong> does for AI agents.</p>
+                                </div>
+                            </div>
                         </div>
-                        <p><strong>Key Learning:</strong> MCP is an open standard that **decouples agents from their
-                            tools.** Tools become "MCP Servers," and agents become "MCP Clients."</This>
+
+                        <div class="bg-blue-50 border-l-4 border-blue-400 p-4 my-4 rounded">
+                            <h4 class="font-semibold text-blue-800 mb-2">Key Learning:</h4>
+                            <ul class="list-disc pl-5 text-blue-700 space-y-1">
+                                <li><strong>MCP (Model Context Protocol)</strong> is an open standard that decouples
+                                    agents from their tools.</li>
+                                <li>Tools are exposed as <strong>"MCP Servers."</strong></li>
+                                <li>Agents act as <strong>"MCP Clients"</strong> that can discover and use any available
+                                    tool on the network, without needing it hard-coded in their prompt.</li>
+                                <li>This is the solution for building scalable, interoperable, and maintainable agentic
+                                    systems.</li>
+                            </ul>
+                        </div>
 
                         <h3 class="font-semibold text-lg text-gray-800 mt-6">Module 4.2: Refactoring Our Team with MCP
                         </h3>
-                        <p><strong>Concept:</strong> A "before and after" refactoring lab. We'll take our messy,
-                            hard-coded "Assembly Line" from Lab 3.3 and refactor it to use the MCP standard, showing how
-                            it solves the N x M problem.</p>
+                        <p><strong>Concept:</strong> We will take our "Assembly Line" blog post generator from Lab 3.3
+                            and refactor it to use the MCP standard. This will make the "N x M" problem and its solution
+                            tangible.</p>
+
+                        <div class="analogy">
+                            <span class="analogy-title">Developer Analogy: The "Before" and "After" Refactor</span>
+                            <p>This is a classic refactoring lab. We'll take our messy, "hard-coded"
+                                <code>main.py</code> from Week 3 and refactor it to use a professional design pattern,
+                                resulting in cleaner, more modular code.</p>
+                        </div>
+
                         <div class="lab">
                             <span class="lab-title">Hands-On Lab 4.2: The "Service Mesh" Refactor</span>
                             <p><strong>Task:</strong> You will refactor your 3-agent workflow from Week 3.</p>
-                            <p><strong>"Before":</strong> `research_agent.py` has the `Google Search` tool hard-coded in
-                                its prompt.</p>
-                            <p><strong>"After":</strong> We'll provide a `tool_server.py` that runs an MCP Server
-                                exposing the `Google Search` tool. You will *delete* the tool definition from your
-                                agent's prompt and modify it to be an MCP Client. Your agent's prompt is now clean, and
-                                *any* agent can now use the `Google Search` tool for free. The "N x M" problem is
-                                solved.</p>
+
+                            <div class="grid md:grid-cols-2 gap-4 mt-4">
+                                <div class="bg-red-50 p-4 rounded border-l-4 border-red-400">
+                                    <h5 class="font-semibold text-red-800 mb-2">"Before" (Our Lab 3.3 code):</h5>
+                                    <p class="text-red-700 text-sm"><code>research_agent.py</code> has the Google Search
+                                        tool definition hard-coded in its system prompt.</p>
+                                </div>
+                                <div class="bg-green-50 p-4 rounded border-l-4 border-green-400">
+                                    <h5 class="font-semibold text-green-800 mb-2">"After" (Our Lab 4.2 code):</h5>
+                                    <ul class="text-green-700 text-sm space-y-1">
+                                        <li>• We will provide a separate script, <code>tool_server.py</code>, that runs
+                                            a simple MCP Server exposing the Google Search tool.</li>
+                                        <li>• You will <strong>delete</strong> the tool definition from your
+                                            research_agent's prompt.</li>
+                                        <li>• You will modify <code>research_agent.py</code> to be an MCP Client that
+                                            connects to the tool_server to discover and use the Google Search tool.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <p
+                                class="mt-4 p-3 bg-yellow-50 border-l-4 border-yellow-400 text-yellow-800 text-sm rounded">
+                                <strong>Result:</strong> Your agent's prompt is now clean and focused only on its task.
+                                And any other agent we build can now also connect to <code>tool_server</code> and use
+                                Google Search for free. We have solved the "N x M" problem.</p>
                         </div>
 
                         <h3 class="font-semibold text-lg text-gray-800 mt-6">Module 4.3: Capstone Project – Building
                             "Diane-Lite" (An HR Super Agent)</h3>
-                        <p><strong>Concept:</strong> The final project. You will synthesize *everything*—the agent loop,
-                            RAG, multi-agent orchestration, and MCP—to build a simplified version of Lyzr's `Diane for
-                            HR` super agent. This will use the "Managerial" (Hierarchical) model.</p>
+                        <p><strong>Concept:</strong> This is the final project. You will synthesize everything you've
+                            learned over the last four weeks—the agent loop, RAG, multi-agent orchestration, and tool
+                            use—to build a simplified version of Lyzr's <strong>Diane for HR</strong> super agent.</p>
 
-                        <p><strong>The Architecture:</strong></p>
-                        <ul class="list-disc pl-5">
-                            <li><strong>`Diane-Manager` (The Conductor):</strong> The user only talks to this agent. It
-                                takes the goal, breaks it down, and delegates.</li>
-                            <li><strong>`HR-Policy-Agent` (Worker):</strong> A RAG agent (from Week 2) connected to
-                                `hr_policy.pdf`.</li>
-                            <li><strong>`Resume-Screener-Agent` (Worker):</strong> A RAG agent connected to a `resumes/`
-                                folder.</li>
-                            <li><strong>`Calendar-Agent` (Worker):</strong> An agent with a tool to
-                                `find_available_interview_slot()`.</li>
-                        </ul>
+                        <div class="bg-purple-50 border-l-4 border-purple-400 p-4 my-4 rounded">
+                            <h4 class="font-semibold text-purple-800 mb-2">The Project Brief:</h4>
+                            <p class="text-purple-700 text-sm">Your task is to build "Diane-Lite," an HR assistant that
+                                can help a hiring manager. The user must be able to make a single, high-level request,
+                                and your agent team must orchestrate the entire workflow to get the answer.</p>
+                        </div>
+
+                        <div class="bg-gray-100 p-4 rounded-lg my-4">
+                            <h4 class="font-semibold text-gray-800 mb-3">The Architecture (Managerial Model):</h4>
+                            <p class="text-gray-700 text-sm mb-3">You will build a multi-agent system using the
+                                "Managerial" (Hierarchical) model from Week 3.</p>
+
+                            <div class="grid gap-3">
+                                <div class="bg-blue-200 p-3 rounded">
+                                    <h6 class="font-semibold text-blue-900"><strong>Diane-Manager</strong> (The
+                                        Conductor):</h6>
+                                    <p class="text-blue-800 text-sm">The only agent the user talks to. It takes the
+                                        goal, breaks it down, and delegates tasks to its specialist workers.</p>
+                                </div>
+                                <div class="flex space-x-3">
+                                    <div class="bg-green-200 p-3 rounded flex-1">
+                                        <h6 class="font-semibold text-green-900"><strong>HR-Policy-Agent</strong>
+                                            (Worker):</h6>
+                                        <p class="text-green-800 text-sm">A RAG agent (from Week 2) that is connected to
+                                            a vector store of <code>hr_policy.pdf</code>. Its only job is to answer
+                                            questions about company policy.</p>
+                                    </div>
+                                    <div class="bg-orange-200 p-3 rounded flex-1">
+                                        <h6 class="font-semibold text-orange-900"><strong>Resume-Screener-Agent</strong>
+                                            (Worker):</h6>
+                                        <p class="text-orange-800 text-sm">A RAG agent that is connected to a vector
+                                            store of <code>resumes/</code>. Its only job is to find candidates that
+                                            match a job description.</p>
+                                    </div>
+                                    <div class="bg-purple-200 p-3 rounded flex-1">
+                                        <h6 class="font-semibold text-purple-900"><strong>Calendar-Agent</strong>
+                                            (Worker):</h6>
+                                        <p class="text-purple-800 text-sm">A simple agent (from Week 1) that has a
+                                            single tool: <code>find_available_interview_slot(date_range)</code>.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="lab">
                             <span class="lab-title">Hands-On Lab 4.3: The "Super Agent" Workflow</span>
-                            <p><strong>Task:</strong> Assemble all four agents and run a final "integration test" with a
-                                single, complex user prompt:</p>
-                            <p><em>"Hi, I'm hiring a 'Senior Python Developer.' First, what is our company's policy on
-                                    remote work? Second, please find the top 3 candidates for that role from our resume
-                                    folder and book a 1-hour interview slot for them next Tuesday."</em></p>
-                            <p><strong>The "Aha!" Moment:</strong> You will watch the `Diane-Manager`'s "thoughts" as it
-                                intelligently orchestrates the entire workflow: calling the policy agent, then the
-                                resume agent, then the calendar agent, and finally synthesizing all three results into a
-                                single, perfect answer for the user.</p>
+                            <p><strong>Task:</strong> You will assemble all four agents and run a final "integration
+                                test" with a complex, high-level user prompt.</p>
+
+                            <div class="bg-gray-900 text-gray-100 p-4 rounded-lg my-4">
+                                <h5 class="text-yellow-400 font-semibold mb-2">User Prompt:</h5>
+                                <p class="text-sm italic">"Hi, I'm hiring a 'Senior Python Developer.' First, what is
+                                    our company's policy on remote work? Second, please find the top 3 candidates for
+                                    that role from our resume folder and book a 1-hour interview slot for them next
+                                    Tuesday."</p>
+                            </div>
+
+                            <div
+                                class="bg-gradient-to-r from-blue-50 to-purple-50 border-l-4 border-blue-400 p-4 my-4 rounded">
+                                <h5 class="font-semibold text-blue-800 mb-3">What you will watch (The "Aha!" Moment):
+                                </h5>
+                                <p class="text-blue-700 text-sm mb-3">You will see the <strong>Diane-Manager</strong>
+                                    agent's "thoughts" as it orchestrates the entire process:</p>
+
+                                <div class="space-y-2 text-sm">
+                                    <div class="bg-white p-2 rounded border-l-2 border-blue-300">
+                                        <strong class="text-blue-900">Manager Thought:</strong> <span
+                                            class="text-blue-700">"The user has three requests. I'll do them in order.
+                                            First, the policy question."</span>
+                                    </div>
+                                    <div class="bg-green-100 p-2 rounded">
+                                        <strong class="text-green-900">Manager → HR-Policy-Agent:</strong> <span
+                                            class="text-green-700">"What is the policy on remote work?"</span><br>
+                                        <strong class="text-green-900">HR-Policy-Agent → Manager:</strong> <span
+                                            class="text-green-700">(Returns the RAG-generated answer).</span>
+                                    </div>
+                                    <div class="bg-white p-2 rounded border-l-2 border-blue-300">
+                                        <strong class="text-blue-900">Manager Thought:</strong> <span
+                                            class="text-blue-700">"Great. Now for the resumes. I'll call the
+                                            screener."</span>
+                                    </div>
+                                    <div class="bg-orange-100 p-2 rounded">
+                                        <strong class="text-orange-900">Manager → Resume-Screener-Agent:</strong> <span
+                                            class="text-orange-700">"Find top 3 candidates for 'Senior Python
+                                            Developer'."</span><br>
+                                        <strong class="text-orange-900">Resume-Screener-Agent → Manager:</strong> <span
+                                            class="text-orange-700">(Returns ["candidate_A.pdf", "candidate_B.pdf",
+                                            "candidate_C.pdf"]).</span>
+                                    </div>
+                                    <div class="bg-white p-2 rounded border-l-2 border-blue-300">
+                                        <strong class="text-blue-900">Manager Thought:</strong> <span
+                                            class="text-blue-700">"Got the candidates. Now I'll find a calendar
+                                            slot."</span>
+                                    </div>
+                                    <div class="bg-purple-100 p-2 rounded">
+                                        <strong class="text-purple-900">Manager → Calendar-Agent:</strong> <span
+                                            class="text-purple-700">"Find a 1-hour slot next Tuesday."</span><br>
+                                        <strong class="text-purple-900">Calendar-Agent → Manager:</strong> <span
+                                            class="text-purple-700">(Returns {"slot": "Tuesday, 3:00 PM - 4:00
+                                            PM"}).</span>
+                                    </div>
+                                    <div class="bg-blue-200 p-3 rounded">
+                                        <strong class="text-blue-900">Manager → User:</strong> <span
+                                            class="text-blue-800">(Generates the final, comprehensive
+                                            answer):</span><br>
+                                        <div class="mt-2 italic text-blue-700 text-xs">
+                                            "Here is the information you requested:<br>
+                                            • Our remote work policy is...<br>
+                                            • The top 3 candidates are: Candidate A, B, and C.<br>
+                                            • I have tentatively booked an interview slot for them on Tuesday at 3:00
+                                            PM."
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <h3 class="font-semibold text-lg text-gray-800 mt-6">Module 4.4: The Road Ahead</h3>
-                        <p><strong>Concept:</strong> A final wrap-up on production readiness.</p>
-                        <ul class="list-disc pl-5">
-                            <li><strong>Evaluation:</strong> How do you test an agent? We'll discuss "AI-as-a-grader"
-                                (using one LLM to "grade" another's output).</li>
-                            <li><strong>Safety & Guardrails:</strong> The importance of "human-in-the-loop" approval
-                                steps before an agent can *act* (e.g., send an email, modify a database).</li>
-                            <li><strong>The Future:</strong> An inspiring look at the "Agent Movement."</li>
-                        </ul>
+                        <p><strong>Concept:</strong> A final wrap-up on the "so what?" of agent development. Now that
+                            you can build an agent, how do you know it's good?</p>
+
+                        <div class="grid md:grid-cols-3 gap-4 mt-4">
+                            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded">
+                                <h4 class="font-semibold text-yellow-800 mb-2">Evaluation:</h4>
+                                <p class="text-yellow-700 text-sm">How to test an agent. You can't just use
+                                    <code>pytest</code> and check for <code>assert x == 5</code>. We'll discuss
+                                    "AI-as-a-grader" (using one LLM to "grade" another's output).</p>
+                            </div>
+                            <div class="bg-red-50 border-l-4 border-red-400 p-4 rounded">
+                                <h4 class="font-semibold text-red-800 mb-2">Safety & Guardrails:</h4>
+                                <p class="text-red-700 text-sm">What's to stop your agent from booking 100 meetings or
+                                    sending an angry email? We'll talk about the importance of "human-in-the-loop"
+                                    approval steps for any agent that <em>acts</em> (i.e., modifies a database, sends an
+                                    email).</p>
+                            </div>
+                            <div class="bg-green-50 border-l-4 border-green-400 p-4 rounded">
+                                <h4 class="font-semibold text-green-800 mb-2">The Future:</h4>
+                                <p class="text-green-700 text-sm">A final, inspiring look at the future of the "Agent
+                                    Movement."</p>
+                            </div>
+                        </div>
                     </div>
                 </details>
             </div>
