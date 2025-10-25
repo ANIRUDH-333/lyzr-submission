@@ -367,7 +367,8 @@ while not goal_achieved:
                         <div class="lab">
                             <span class="lab-title">Hands-On Lab 2.2: "Hello, Vectors!"</span>
                             <p><strong>Task:</strong> We'll use a simple, in-memory vector DB library (like
-                                <code>chromadb</code>).</p>
+                                <code>chromadb</code>).
+                            </p>
                             <p><strong>Goal:</strong> Prove the concept of semantic search in a few lines of Python.</p>
                             <pre class="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm mt-3"><code>db.add(document="The cat is sleeping on the couch.", id="doc1")
 db.add(document="The dog is barking in the yard.", id="doc2")
@@ -465,48 +466,190 @@ What is Lyzr's AgentMesh?"</code></pre>
                         <hr class="my-4">
 
                         <h3 class="font-semibold text-lg text-gray-800">Module 3.1: The "God Agent" Problem</h3>
-                        <p><strong>Concept:</strong> We'll show that as you add more tools and logic to a single agent,
-                            its prompt becomes a "God prompt"—a bloated, brittle, and unmaintainable mess.</p>
+                        <p><strong>Concept:</strong> We'll start with the problem. Our RAG agent from Week 2 is
+                            powerful, but what happens when we ask it to do more? "Chat with my docs, and search the
+                            web, and write a blog post, and then send me an email." The agent's prompt becomes a
+                            bloated, thousand-line mess of instructions and tool definitions. It becomes a "God Agent"
+                            that is brittle, hard to debug, and expensive to run.</p>
+
                         <div class="analogy">
-                            <span class="analogy-title">Developer Analogy: The Monolith vs. Microservices</span>
-                            <p>A "God Agent" is a <strong>Monolith</strong>. It's one giant `main.py` that handles auth,
-                                DB, email, and business logic. A <strong>Multi-Agent System</strong> is a
-                                <strong>Microservices Architecture</strong>. We create specialized agents (a
-                                `ResearchAgent`, a `WritingAgent`, an `EmailAgent`) that each do one thing perfectly.
-                                This is modular, testable, and scalable.
-                            </p>
+                            <span class="analogy-title">Developer Analogy: The "God Function" vs. Microservices</span>
+                            <p>A "God Agent" is like a <strong>"God Function"</strong> or a <strong>Monolith</strong>: A
+                                single, 5000-line <code>main.py</code> script that tries to handle database connections,
+                                user auth, business logic, and email sending. It's impossible to maintain, test, or
+                                update.</p>
+                            <p>A <strong>Multi-Agent System</strong> is like a <strong>Microservices
+                                    Architecture</strong>: We break the complex problem down. We create:</p>
+                            <ul class="list-disc pl-5 mt-2">
+                                <li>An auth-service (a <strong>ResearchAgent</strong> that only knows how to search).
+                                </li>
+                                <li>A user-service (a <strong>WritingAgent</strong> that only knows how to draft text).
+                                </li>
+                                <li>A notification-service (a <strong>EmailAgent</strong> that only knows how to send
+                                    alerts).</li>
+                            </ul>
+                            <p>This makes our system modular, testable, and scalable. Each agent has a single, clear
+                                responsibility.</p>
+                        </div>
+
+                        <div class="bg-blue-50 border-l-4 border-blue-400 p-4 my-4 rounded">
+                            <h4 class="font-semibold text-blue-800 mb-2">Key Learning:</h4>
+                            <ul class="list-disc pl-5 text-blue-700">
+                                <li>Don't build one agent that does 10 things.</li>
+                                <li>Build 10 specialized agents that each do one thing perfectly.</li>
+                                <li>The new challenge isn't building agents; it's managing them. This is the problem of
+                                    <strong>Orchestration</strong>.</li>
+                            </ul>
                         </div>
 
                         <h3 class="font-semibold text-lg text-gray-800 mt-6">Module 3.2: The Conductor and the Orchestra
                             (Orchestration Patterns)</h3>
-                        <p><strong>Concept:</strong> Now that we have a team, we need a "conductor" (Orchestrator
-                            Agent). We'll cover the two patterns Lyzr uses: Managerial (Hierarchical) and DAG
-                            (Sequential).</p>
-                        <div class="analogy">
-                            <span class="analogy-title">Developer Analogies for Orchestration</span>
-                            <p><strong>1. The "Managerial" (Hierarchical) Model:</strong> This is a <strong>Tech Lead
-                                    and Junior Devs</strong>. The Manager Agent (Lead) gets a complex goal, breaks it
-                                down, and delegates tasks to worker agents (Juniors), then reviews their work and plans
-                                the next step. It's dynamic and great for complex, unknown problems.</p>
-                            <p><strong>2. The "DAG" (Sequential) Model:</strong> This is a <strong>CI/CD Pipeline
-                                    (`.gitlab-ci.yml`)</strong>. It's a fixed, predictable workflow (`lint` -> `test` ->
-                                `build`). The output of one agent is "piped" directly to the input of the next. It's
-                                reliable and perfect for auditable business processes.</p>
+                        <p><strong>Concept:</strong> Now that we have our team of specialist agents (the "orchestra"),
+                            we need a "conductor" to tell them what to do and when. This conductor is the
+                            <strong>Orchestrator Agent</strong>. We will focus on the two primary orchestration patterns
+                            Lyzr uses.</p>
+
+                        <div class="bg-gray-100 p-4 rounded-lg my-4 text-center">
+                            <div class="text-sm text-gray-600 mb-2">Simple Orchestration Diagram:</div>
+                            <div class="font-mono text-xs">
+                                <div class="bg-blue-200 p-2 rounded mb-2 inline-block">Manager Agent</div>
+                                <div class="text-gray-500">↙ ↓ ↘</div>
+                                <div class="flex justify-center space-x-4 mt-2">
+                                    <div class="bg-green-200 p-2 rounded text-xs">Worker 1</div>
+                                    <div class="bg-green-200 p-2 rounded text-xs">Worker 2</div>
+                                    <div class="bg-green-200 p-2 rounded text-xs">Worker 3</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-4 my-6">
+                            <div class="bg-orange-50 border-l-4 border-orange-400 p-4 rounded">
+                                <h4 class="font-semibold text-orange-800 mb-2">Pattern 1: The "Managerial"
+                                    (Hierarchical) Model</h4>
+                                <div class="analogy-title text-orange-700 mb-2">Analogy: A Tech Lead and Junior Devs
+                                </div>
+                                <p class="text-orange-700 text-sm">You (the user) give a complex feature request to the
+                                    Tech Lead (the Manager Agent). The Lead breaks it down into smaller, concrete tasks.
+                                </p>
+                                <div class="bg-orange-100 p-2 rounded mt-2 text-xs font-mono">
+                                    <div>"Okay, I need a 'frontend' task, a 'backend' task, and a 'database' task."
+                                    </div>
+                                </div>
+                                <p class="text-orange-700 text-sm mt-2">The Lead then delegates each task to the right
+                                    specialist:</p>
+                                <pre class="bg-orange-100 p-2 rounded mt-1 text-xs"><code>BackendAgent.work(task="create the /api/user endpoint")
+FrontendAgent.work(task="build the login form")</code></pre>
+                                <p class="text-orange-700 text-sm mt-2"><strong>Use Case:</strong> Perfect for dynamic,
+                                    complex problems where you don't know all the steps in advance (e.g., "Plan me a
+                                    3-day trip to Tokyo").</p>
+                            </div>
+
+                            <div class="bg-indigo-50 border-l-4 border-indigo-400 p-4 rounded">
+                                <h4 class="font-semibold text-indigo-800 mb-2">Pattern 2: The "DAG" (Sequential) Model
+                                </h4>
+                                <div class="analogy-title text-indigo-700 mb-2">Analogy: A CI/CD Pipeline
+                                    (.gitlab-ci.yml)</div>
+                                <p class="text-indigo-700 text-sm">This is a fixed, predictable workflow. The steps are
+                                    known in advance, and one step must finish before the next can begin.</p>
+                                <div class="bg-indigo-100 p-2 rounded mt-2 text-xs font-mono">
+                                    <div>lint-job → test-job → build-job → deploy-job</div>
+                                </div>
+                                <p class="text-indigo-700 text-sm mt-2">In this model, there's no dynamic "manager."
+                                    It's a predefined graph of operations.</p>
+                                <ul class="text-indigo-700 text-sm mt-2 space-y-1">
+                                    <li>• Input goes to ResearchAgent.</li>
+                                    <li>• Output of ResearchAgent → WritingAgent.</li>
+                                    <li>• Output of WritingAgent → ReviewAgent.</li>
+                                </ul>
+                                <p class="text-indigo-700 text-sm mt-2"><strong>Use Case:</strong> Perfect for reliable,
+                                    repeatable business processes (e.g., "Take this blog post, generate SEO keywords,
+                                    then post it to our blog").</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-blue-50 border-l-4 border-blue-400 p-4 my-4 rounded">
+                            <h4 class="font-semibold text-blue-800 mb-2">Key Learning:</h4>
+                            <ul class="list-disc pl-5 text-blue-700">
+                                <li><strong>Managerial (Dynamic):</strong> Use for creative tasks and unknown problems.
+                                </li>
+                                <li><strong>DAG (Sequential):</strong> Use for fixed, reliable, and auditable workflows.
+                                </li>
+                            </ul>
                         </div>
 
                         <h3 class="font-semibold text-lg text-gray-800 mt-6">Module 3.3: "Hello, Team!" – Building a
                             3-Agent Workflow</h3>
-                        <p><strong>Concept:</strong> We'll build a "blog post" generator using the **DAG (Sequential)
-                            Model** because it's the easiest to build from scratch and is the agentic equivalent of a
-                            `bash` pipe.</p>
+                        <p><strong>Concept:</strong> We'll build a "blog post" generator using the <strong>DAG
+                                (Sequential) Model</strong> because it's the easiest to build from scratch. This lab
+                            will show how to "pipe" the output of one agent into the input of another.</p>
+
+                        <div class="analogy">
+                            <span class="analogy-title">Developer Analogy: Piping Commands in Linux</span>
+                            <p>This lab is the agentic equivalent of a simple bash command:</p>
+                            <pre
+                                class="bg-gray-900 text-gray-100 p-3 rounded text-sm mt-2"><code>cat blog_topic.txt | ./research_agent.py | ./writing_agent.py > final_draft.txt</code></pre>
+                            <p>We are literally "piping" the state from one agent to the next.</p>
+                        </div>
+
                         <div class="lab">
                             <span class="lab-title">Hands-On Lab 3.3: The "Assembly Line" Agent Team</span>
-                            <p><strong>Task:</strong> Build a 3-agent DAG workflow (`research_agent.py`,
-                                `writing_agent.py`, `review_agent.py`).</p>
-                            <p><strong>Goal:</strong> Your main script will "pipe" the output of the first agent into
-                                the second, and the second into the third. We'll end by posing a question: "This works,
-                                but now 5 agents all need to know about our 10 tools. How do we manage that?" This is
-                                the "N x M" problem that leads perfectly into Week 4.</p>
+                            <p><strong>Task:</strong> You will build a 3-agent DAG workflow to write a blog post.</p>
+
+                            <div class="mt-4">
+                                <h5 class="font-semibold text-green-700 mb-3">Requirements:</h5>
+
+                                <div class="space-y-4">
+                                    <div class="bg-green-50 p-3 rounded border-l-4 border-green-400">
+                                        <h6 class="font-semibold text-green-800"><code>research_agent.py</code>:</h6>
+                                        <ul class="text-green-700 text-sm mt-1 space-y-1">
+                                            <li>• Takes a topic (e.g., "Why Python is great for AI").</li>
+                                            <li>• Has a Google Search tool.</li>
+                                            <li>• <strong>Output:</strong> A JSON object with a list of 5 bullet points
+                                                (e.g., <code>{"research_notes": [...]}</code>).</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="bg-blue-50 p-3 rounded border-l-4 border-blue-400">
+                                        <h6 class="font-semibold text-blue-800"><code>writing_agent.py</code>:</h6>
+                                        <ul class="text-blue-700 text-sm mt-1 space-y-1">
+                                            <li>• Takes <code>research_notes</code> as input.</li>
+                                            <li>• Has no tools. Its only job is to write.</li>
+                                            <li>• <strong>Output:</strong> A JSON object with the full blog post text
+                                                (e.g., <code>{"draft": "..."}</code>).</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="bg-purple-50 p-3 rounded border-l-4 border-purple-400">
+                                        <h6 class="font-semibold text-purple-800"><code>review_agent.py</code>:</h6>
+                                        <ul class="text-purple-700 text-sm mt-1 space-y-1">
+                                            <li>• Takes a <code>draft</code> as input.</li>
+                                            <li>• Has no tools. Its job is to review and give a score.</li>
+                                            <li>• <strong>Output:</strong> A JSON object with a rating and comments
+                                                (e.g.,
+                                                <code>{"rating": 8, "comments": "Good, but a bit short."}</code>).</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="bg-gray-50 p-3 rounded border-l-4 border-gray-400">
+                                        <h6 class="font-semibold text-gray-800"><code>main.py</code> (The Orchestrator):
+                                        </h6>
+                                        <p class="text-gray-700 text-sm mt-1">Your main script will call each agent in
+                                            order, take its output, and use it as the input for the next agent, printing
+                                            the final result.</p>
+                                    </div>
+                                </div>
+
+                                <div class="bg-red-50 border-l-4 border-red-400 p-4 my-4 rounded">
+                                    <h5 class="font-semibold text-red-800 mb-2">Final "Aha!" Moment:</h5>
+                                    <p class="text-red-700 text-sm">At the end of this lab, we'll pose a question: "This
+                                        works great, but our <code>research_agent</code> and <code>writing_agent</code>
+                                        both needed to be told about the Google Search tool. What if we had 20 agents
+                                        and 10 tools? How do we manage that?"</p>
+                                    <p class="text-red-700 text-sm mt-2">This <strong>"N x M" problem</strong> (20
+                                        agents x 10 tools) is the perfect lead-in to Week 4, where we introduce
+                                        <strong>MCP (Model Context Protocol)</strong> as the elegant solution.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </details>
