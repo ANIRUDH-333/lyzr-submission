@@ -129,13 +129,15 @@
                             <p>A "one-shot" LLM call is like a <strong>REPL (Read-Eval-Print Loop)</strong>: You type
                                 <code>2 + 2</code> and it returns <code>4</code>. You ask a question, it gives an
                                 answer. It's a powerful, single-turn "Read-Eval-Print" cycle. But it's passive. It has
-                                no state and cannot act on its own.</p>
+                                no state and cannot act on its own.
+                            </p>
                             <p>An <strong>AI Agent</strong> is like an <strong>Ansible Playbook</strong> or a
                                 <strong>Terraform Script</strong>: You don't tell it how to do every step. You give it a
                                 goal (e.g., "ensure this server is configured," "get me a brief on Company X"). The
                                 script then autonomously observes the current state, thinks about the steps needed, and
                                 acts to achieve the desired state. It can run commands, check results, and loop until
-                                the goal is met.</p>
+                                the goal is met.
+                            </p>
                         </div>
 
                         <div class="bg-blue-50 border-l-4 border-blue-400 p-4 my-4 rounded">
@@ -254,7 +256,8 @@ while not goal_achieved:
                                 <ol class="list-decimal pl-5 space-y-2">
                                     <li>You will write a simple Python function <code>get_weather(city)</code>. (It can
                                         just return a hard-coded JSON string like
-                                        <code>{"city": "London", "temp": "15C"}</code> for this lab).</li>
+                                        <code>{"city": "London", "temp": "15C"}</code> for this lab).
+                                    </li>
                                     <li>You will write a <code>system_prompt</code> that tells the LLM: "You are a
                                         helpful assistant. You have one tool: get_weather(city). When asked about the
                                         weather, you MUST reply only with a JSON object in the format: {"thought":
@@ -286,75 +289,164 @@ while not goal_achieved:
                         <p class="text-lg"><strong>Weekly Goal:</strong> To solve the agent "amnesia problem." You will
                             learn the difference between short-term conversational memory and long-term knowledge
                             memory. By the end of this week, you will understand and build the most critical pattern in
-                            agentic AI: <strong>Retrieval-Augmented Generation (RAG)</strong>.</p>
+                            agentic AI: <strong>Retrieval-Augmented Generation (RAG)</strong>, allowing your agents to
+                            access and reason about external data (like your own documents).</p>
 
                         <hr class="my-4">
 
                         <h3 class="font-semibold text-lg text-gray-800">Module 2.1: The Amnesia Problem (Short-Term
                             Memory)</h3>
-                        <p><strong>Concept:</strong> LLMs are stateless. Every API call is independent. We'll show how
-                            passing the conversation `history` (from Lab 1.3) solves short-term memory but inevitably
-                            fails by overflowing the LLM's **context window** (its "RAM").</p>
+                        <p><strong>Concept:</strong> We'll start by defining the problem. LLMs are, by default,
+                            stateless. Every API call is completely independent, like a curl request to a REST API. It
+                            has no memory of past interactions. This is the "amnesia problem." We'll explore the first
+                            and simplest solution: conversational history.</p>
+
                         <div class="analogy">
-                            <span class="analogy-title">Developer Analogy: HTTP vs. Sessions</span>
-                            <p>A stateless LLM call is like a raw <strong>HTTP request</strong>. The server forgets you
-                                instantly. Passing the chat history is like stuffing all your data into a
-                                <strong>Session Cookie</strong> or `request.session`. It works, but it's slow,
-                                expensive, and will eventually break (a "413 Payload Too Large" error).
-                            </p>
+                            <span class="analogy-title">Developer Analogy: HTTP vs. Web Sockets (or Sessions)</span>
+                            <p>A "stateless" LLM call is like an <strong>HTTP request</strong>: Every single request is
+                                new. If you want the server to know who you are, you must pass your entire context (like
+                                a JWT or session cookie) with every single call.</p>
+                            <p>An agent with "short-term memory" is like a <strong>request.session</strong> object (or a
+                                stateful WebSocket): We can store the conversation history in a list (like our history
+                                list from Lab 1.3) and pass it back with each new request. This "fakes" a continuous
+                                conversation.</p>
                         </div>
+
+                        <div class="bg-blue-50 border-l-4 border-blue-400 p-4 my-4 rounded">
+                            <h4 class="font-semibold text-blue-800 mb-2">Key Learning:</h4>
+                            <ul class="list-disc pl-5 text-blue-700">
+                                <li><strong>Problem:</strong> The history list will eventually grow too large and
+                                    overflow the LLM's context window (its "RAM"). This is expensive, slow, and will
+                                    eventually fail.</li>
+                                <li><strong>Solution:</strong> Short-term memory is only for short conversations. We
+                                    need a different solution for "long-term memory" (i.e., knowledge).</li>
+                            </ul>
+                        </div>
+
                         <div class="lab">
                             <span class="lab-title">Hands-On Lab 2.1: Breaking the Context Window</span>
-                            <p><strong>Task:</strong> Modify your "No-Magic Agent" by pre-filling the `history` list
-                                with 10,000 words. When you run it, the LLM API call will fail with a "Context Length
-                                Exceeded" error. This makes the abstract problem of the context window a *tangible bug*
-                                that you must now solve.</p>
+                            <p><strong>Task:</strong> You will modify your "No-Magic Agent" from Week 1.</p>
+                            <p><strong>Goal:</strong> We will simulate a long conversation by pre-filling the history
+                                list with 10,000 words of "fake" conversational text.</p>
+                            <p><strong>Result:</strong> When you run your agent, you will see the LLM API call fail with
+                                a "Context Length Exceeded" error. This lab makes the abstract problem of the context
+                                window a tangible, physical bug that you, the developer, must now solve.</p>
                         </div>
 
                         <h3 class="font-semibold text-lg text-gray-800 mt-6">Module 2.2: Long-Term Memory (Embeddings &
                             Vector Databases)</h3>
-                        <p><strong>Concept:</strong> We introduce the solution for long-term memory. To do this, we must
-                            first understand "embeddings" (semantic hashes) and "vector databases" (search-by-meaning).
-                        </p>
+                        <p><strong>Concept:</strong> Now that we've proven our agent can't "remember" large files, we'll
+                            introduce the solution: Vector Databases. To understand them, we must first understand
+                            "embeddings."</p>
+
                         <div class="analogy">
-                            <span class="analogy-title">Developer Analogy: SQL `LIKE` vs. Vector Search</span>
-                            <p>A SQL DB finds *literal* matches: `SELECT * WHERE content LIKE '%developer%';` (This will
-                                NOT find "software engineer"). A <strong>Vector DB</strong> finds *conceptual* matches.
-                                A query for "developer" *will* find "software engineer" because their "semantic hashes"
-                                (vectors) are numerically close. It's a database that searches by *meaning*, not just
-                                text.</p>
+                            <span class="analogy-title">Developer Analogy: A Git Commit Hash</span>
+                            <p><strong>What is an Embedding?</strong> It's a way to turn complex data (like text) into a
+                                machine-readable signature (a list of numbers, or "vector").</p>
+                            <p><strong>The Analogy:</strong> How does Git know if a file has changed? It doesn't diff
+                                the whole file every time. It runs the file content through a hash function (SHA-1) to
+                                create a unique, fixed-size signature (the "hash").</p>
+                            <pre
+                                class="bg-gray-100 p-3 rounded text-sm"><code>"Hello, World!" -> a591a6d40bf420404a011733cfb7b190d62c65bf</code></pre>
+                            <p>An <strong>Embedding Model</strong> is just a "hash function" for meaning (semantics). It
+                                turns text into a "semantic hash" (a vector) so that similar-meaning texts have
+                                similar-looking vectors.</p>
                         </div>
+
+                        <div class="analogy mt-4">
+                            <span class="analogy-title">Developer Analogy: SQL LIKE vs. Vector Search</span>
+                            <p>A <strong>SQL DB</strong> finds literal matches. If you search for "developer," it will
+                                not find "software engineer."</p>
+                            <pre
+                                class="bg-gray-100 p-3 rounded text-sm mt-2"><code>SELECT * FROM docs WHERE content LIKE '%developer%';</code></pre>
+                            <p>A <strong>Vector DB</strong> finds conceptual or semantic matches. If you search for
+                                "developer," it will find "software engineer," "coder," and "programmer" because their
+                                "semantic hashes" (vectors) are numerically close in the database.</p>
+                        </div>
+
                         <div class="lab">
                             <span class="lab-title">Hands-On Lab 2.2: "Hello, Vectors!"</span>
-                            <p><strong>Task:</strong> In 10 lines of Python, use a simple in-memory vector DB (like
-                                `chromadb`). You'll add "The cat is sleeping" and then query for "What is the feline
-                                doing?". The "aha!" moment is seeing it return the "cat" document. You've just built a
-                                search engine that understands synonyms.</p>
+                            <p><strong>Task:</strong> We'll use a simple, in-memory vector DB library (like
+                                <code>chromadb</code>).</p>
+                            <p><strong>Goal:</strong> Prove the concept of semantic search in a few lines of Python.</p>
+                            <pre class="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm mt-3"><code>db.add(document="The cat is sleeping on the couch.", id="doc1")
+db.add(document="The dog is barking in the yard.", id="doc2")
+db.add(document="I love to code in Python.", id="doc3")
+
+# Run a query
+results = db.query(query_text="What is the feline doing?")</code></pre>
+                            <p><strong>Result:</strong> The database will return <code>doc1</code>. This is the "aha!"
+                                moment. You searched for "feline" and it found "cat." You now have a database that can
+                                search by meaning.</p>
                         </div>
 
                         <h3 class="font-semibold text-lg text-gray-800 mt-6">Module 2.3: The "Chat with your Docs" Agent
                             (RAG)</h3>
-                        <p><strong>Concept:</strong> Combine the agent loop (Week 1) with the vector DB (Module 2.2) to
-                            build a **Retrieval-Augmented Generation (RAG)** agent. This is the payoff.</p>
+                        <p><strong>Concept:</strong> This is the payoff. We will now combine our agent loop (Week 1)
+                            with our new vector database (Module 2.2) to build a <strong>Retrieval-Augmented Generation
+                                (RAG)</strong> agent. This is the pattern for building agents that can "talk to" private
+                            data.</p>
+
                         <div class="analogy">
                             <span class="analogy-title">Developer Analogy: The "Open-Book Exam"</span>
-                            <p>A normal LLM call is a "closed-book exam" (it only knows its training data). A
-                                <strong>RAG call</strong> is an "open-book exam." The agent's new flow is:
-                            <ol>
-                                <li><strong>Retrieve (The `SELECT`):</strong> First, search the vector DB for relevant
-                                    context.</li>
-                                <li><strong>Augment (The "Context Stuffing"):</strong> Stuff that context into the *top*
-                                    of a new prompt.</li>
-                                <li><strong>Generate (The "Render"):</strong> Ask the LLM to answer the user's question
-                                    *using only* the provided context.</li>
-                            </ol>
-                            This grounds the agent in *your* data and prevents hallucination.
-                            </p>
+                            <p>A normal LLM call is a "closed-book exam." The LLM can only answer based on what it was
+                                trained on (what it "memorized" up to 2023).</p>
+                            <p>A <strong>RAG call</strong> is an "open-book exam." The agent isn't asked to know the
+                                answer. It's asked to find the answer and summarize it.</p>
                         </div>
+
+                        <div class="bg-purple-50 border-l-4 border-purple-400 p-4 my-4 rounded">
+                            <h4 class="font-semibold text-purple-800 mb-3">The RAG Flow (This is the most important
+                                part):</h4>
+                            <div class="space-y-3 text-purple-700">
+                                <div><strong>User Query:</strong> "What is Lyzr's AgentMesh?"</div>
+                                <div>
+                                    <strong>Step 1: Retrieve (The SELECT):</strong> The agent does not ask the LLM. It
+                                    first asks the Vector DB.
+                                    <pre
+                                        class="bg-purple-100 p-2 rounded text-sm mt-1"><code>context_chunks = db.query("What is Lyzr's AgentMesh?")</code></pre>
+                                </div>
+                                <div><strong>Step 2: Augment (The "Context Stuffing"):</strong> The agent takes the user
+                                    query and stuffs the retrieved text chunks into a new prompt.</div>
+                                <div><strong>Step 3: Generate (The "Render"):</strong> The agent finally calls the LLM
+                                    with this new, augmented prompt.</div>
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-50 p-4 rounded-lg my-4">
+                            <h5 class="font-semibold text-gray-800 mb-2">Example Augmented Prompt:</h5>
+                            <pre class="bg-gray-900 text-gray-100 p-4 rounded text-sm overflow-x-auto"><code>"You are a helpful assistant. Using ONLY the context below, answer the user's question.
+
+Context:
+- 'AgentMesh is a protocol...'
+- 'It allows for agent-to-agent communication...'
+
+User's Question:
+What is Lyzr's AgentMesh?"</code></pre>
+                        </div>
+
                         <div class="lab">
                             <span class="lab-title">Hands-On Lab 2.3: "Chat with Lyzr" RAG Agent</span>
-                            <p><strong>Task:</strong> Build a complete RAG agent from scratch that ingests a text file
-                                (`lyzr_about.txt`) and answers questions about it.</p>
+                            <p><strong>Task:</strong> You will build a complete RAG agent from scratch.</p>
+
+                            <div class="mt-3">
+                                <h5 class="font-semibold text-green-700 mb-2">Requirements:</h5>
+                                <ol class="list-decimal pl-5 space-y-2">
+                                    <li>We will provide a <code>lyzr_about.txt</code> file.</li>
+                                    <li>Your script will first <strong>index the file</strong>: read it, split it into
+                                        chunks, embed them, and save them to a chromadb store.</li>
+                                    <li>Your script will then run the <strong>RAG loop</strong>:
+                                        <ul class="list-disc pl-5 mt-2 space-y-1">
+                                            <li>Take a user's question (e.g., "What super agents does Lyzr have?").</li>
+                                            <li><strong>Retrieve</strong> the relevant chunks from the DB.</li>
+                                            <li><strong>Augment</strong> the prompt with those chunks.</li>
+                                            <li><strong>Generate</strong> the final answer from the LLM.</li>
+                                        </ul>
+                                    </li>
+                                </ol>
+                                <p class="mt-3"><strong>Result:</strong> A working "Chat with your Docs" agent. You have
+                                    solved the memory problem and built the most in-demand agentic system.</p>
+                            </div>
                         </div>
                     </div>
                 </details>
