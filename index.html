@@ -689,7 +689,8 @@ FrontendAgent.work(task="build the login form")</code></pre>
                                     <p class="text-red-700 text-sm">This is like hard-coding
                                         <code>fetch('http://weather-api.com/...')</code> inside every single one of your
                                         microservices. It works, but it's brittle. What happens when the API URL
-                                        changes? You have to update 20 services.</p>
+                                        changes? You have to update 20 services.
+                                    </p>
                                 </div>
                                 <div class="bg-green-50 p-3 rounded border-l-4 border-green-400">
                                     <h5 class="font-semibold text-green-800">The "Production" Way (MCP):</h5>
@@ -698,7 +699,8 @@ FrontendAgent.work(task="build the login form")</code></pre>
                                         just connect to the mesh, which handles service discovery. The agent simply
                                         says, "I need the 'weather' service," and the mesh connects them. The agent
                                         doesn't know or care where the service lives. This is what the <strong>Model
-                                            Context Protocol (MCP)</strong> does for AI agents.</p>
+                                            Context Protocol (MCP)</strong> does for AI agents.
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -726,7 +728,8 @@ FrontendAgent.work(task="build the login form")</code></pre>
                             <span class="analogy-title">Developer Analogy: The "Before" and "After" Refactor</span>
                             <p>This is a classic refactoring lab. We'll take our messy, "hard-coded"
                                 <code>main.py</code> from Week 3 and refactor it to use a professional design pattern,
-                                resulting in cleaner, more modular code.</p>
+                                resulting in cleaner, more modular code.
+                            </p>
                         </div>
 
                         <div class="lab">
@@ -756,7 +759,8 @@ FrontendAgent.work(task="build the login form")</code></pre>
                                 class="mt-4 p-3 bg-yellow-50 border-l-4 border-yellow-400 text-yellow-800 text-sm rounded">
                                 <strong>Result:</strong> Your agent's prompt is now clean and focused only on its task.
                                 And any other agent we build can now also connect to <code>tool_server</code> and use
-                                Google Search for free. We have solved the "N x M" problem.</p>
+                                Google Search for free. We have solved the "N x M" problem.
+                            </p>
                         </div>
 
                         <h3 class="font-semibold text-lg text-gray-800 mt-6">Module 4.3: Capstone Project – Building
@@ -891,7 +895,8 @@ FrontendAgent.work(task="build the login form")</code></pre>
                                 <h4 class="font-semibold text-yellow-800 mb-2">Evaluation:</h4>
                                 <p class="text-yellow-700 text-sm">How to test an agent. You can't just use
                                     <code>pytest</code> and check for <code>assert x == 5</code>. We'll discuss
-                                    "AI-as-a-grader" (using one LLM to "grade" another's output).</p>
+                                    "AI-as-a-grader" (using one LLM to "grade" another's output).
+                                </p>
                             </div>
                             <div class="bg-red-50 border-l-4 border-red-400 p-4 rounded">
                                 <h4 class="font-semibold text-red-800 mb-2">Safety & Guardrails:</h4>
@@ -915,12 +920,28 @@ FrontendAgent.work(task="build the login form")</code></pre>
         <!-- Part 2: The Video -->
         <section>
             <h2 class="text-2xl font-semibold text-gray-900 mb-4">Part 2: 3-Minute Teaching Video</h2>
-            <p class="mb-4">For the video portion, I chose to teach **Module 2.3: The "Chat with your Docs" Agent
-                (RAG)**. This concept is fundamental to building useful agents and provides a great "aha!" moment for
-                developers.</p>
-            <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-xl border border-gray-200">
-                <!-- 
-    </div>
+            <p class="mb-4 text-gray-700">For the video portion, I chose to teach <strong>Module 2.3: The "Chat with
+                    your Docs" Agent (RAG)</strong>. This concept is fundamental to building useful agents and provides
+                a great "aha!" moment for developers.</p>
+
+            <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg">
+                    <iframe class="w-full h-96 rounded-lg" src="https://www.youtube.com/embed/fMD4XU-ppPw?start=1"
+                        title="Agent Building for Developers - RAG Tutorial" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+                    <h3 class="font-semibold text-gray-800 mb-2">Video Overview:</h3>
+                    <p class="text-gray-700 text-sm">This 3-minute tutorial demonstrates how to build a RAG
+                        (Retrieval-Augmented Generation) agent from scratch, showing the "Retrieve, Augment, Generate"
+                        pattern that allows agents to chat with your own documents and data.</p>
+                </div>
+            </div>
+        </section>
 
 </body>
+
 </html>
