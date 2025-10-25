@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,14 +10,19 @@
         /* Simple styling for the <details> summary to act as an accordion */
         summary {
             cursor: pointer;
-            list-style: none; /* Remove default marker */
+            list-style: none;
+            /* Remove default marker */
         }
+
         summary::-webkit-details-marker {
-            display: none; /* Hide marker for Chrome/Safari */
+            display: none;
+            /* Hide marker for Chrome/Safari */
         }
+
         summary:focus {
             outline: none;
         }
+
         /* Add a custom marker */
         summary:before {
             content: '►';
@@ -24,61 +30,78 @@
             font-size: 0.8em;
             transition: transform 0.2s ease-in-out;
         }
+
         details[open] summary:before {
             transform: rotate(90deg);
         }
+
         /* Style for analogies */
         .analogy {
-            background-color: #fefce8; /* yellow-50 */
-            border-left: 4px solid #facc15; /* yellow-400 */
+            background-color: #fefce8;
+            /* yellow-50 */
+            border-left: 4px solid #facc15;
+            /* yellow-400 */
             padding: 1rem;
             margin: 1rem 0;
             border-radius: 0.25rem;
         }
+
         .analogy-title {
             font-weight: 600;
-            color: #ca8a04; /* yellow-600 */
+            color: #ca8a04;
+            /* yellow-600 */
             display: block;
             margin-bottom: 0.5rem;
         }
+
         /* Style for labs */
         .lab {
-            background-color: #f0fdf4; /* green-50 */
-            border-left: 4px solid #4ade80; /* green-400 */
+            background-color: #f0fdf4;
+            /* green-50 */
+            border-left: 4px solid #4ade80;
+            /* green-400 */
             padding: 1rem;
             margin: 1rem 0;
             border-radius: 0.25rem;
         }
+
         .lab-title {
             font-weight: 600;
-            color: #16a34a; /* green-600 */
+            color: #16a34a;
+            /* green-600 */
             display: block;
             margin-bottom: 0.5rem;
         }
+
         /* Add Inter font */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8fafc; /* slate-50 */
-            color: #334155; /* slate-700 */
+            background-color: #f8fafc;
+            /* slate-50 */
+            color: #334155;
+            /* slate-700 */
         }
     </style>
 </head>
+
 <body class="antialiased">
 
     <div class="container mx-auto max-w-4xl p-5 md:p-10">
-        
+
         <!-- Header -->
         <header class="mb-10">
             <h1 class="text-3xl md:text-4xl font-bold text-gray-900">Education Engineer Submission</h1>
             <p class="mt-2 text-lg text-gray-600">By Anirudh Edpuganti</p>
-            <p class="mt-4 text-gray-700">Thank you for the opportunity. Below is my proposed 4-week curriculum for the "Agent Building for Developers" course (Part 1), along with my 3-minute teaching video (Part 2).</p>
+            <p class="mt-4 text-gray-700">Thank you for the opportunity. Below is my proposed 4-week curriculum for the
+                "Agent Building for Developers" course (Part 1), along with my 3-minute teaching video (Part 2).</p>
         </header>
 
         <!-- Part 1: The 4-Week Curriculum -->
         <section class="mb-12">
             <h2 class="text-2xl font-semibold text-gray-900 mb-6">Part 1: 4-Week Course Curriculum</h2>
-            
+
             <div class="space-y-4">
 
                 <!-- Week 1 -->
@@ -87,47 +110,169 @@
                         Week 1: The Agentic Leap – From Prompting to Problem-Solving
                     </summary>
                     <div class="mt-4 prose prose-slate max-w-none text-gray-700">
-                        <p class="text-lg"><strong>Weekly Goal:</strong> To build powerful motivation and demystify AI agents. You will answer the "Why?" for a developer audience and then build your first agent from scratch, proving there is "no magic" behind the curtain.</p>
-                        
+                        <p class="text-lg"><strong>Weekly Goal:</strong> To "demystify" AI Agents by answering the
+                            critical "Why?" and "What?". By the end of this week, you will move from being a developer
+                            who uses an LLM to a developer who understands how to automate with an LLM. You will build
+                            your first simple agent from scratch, with no magic frameworks.</p>
+
                         <hr class="my-4">
 
-                        <h3 class="font-semibold text-lg text-gray-800">Module 1.1: Why Agents? The Shift from Instruction to Intention</h3>
-                        <p><strong>Concept:</strong> We'll answer the "Is this just hype?" question head-on. We'll frame LLMs as "instruction-takers" (like a single function call) and Agents as "intention-solvers" (like a full application). This module is about moving from telling the computer *how* to do something to telling it *what* we want to achieve.</p>
-                        <div class="analogy">
-                            <span class="analogy-title">Developer Analogy: A REPL vs. an Ansible Playbook</span>
-                            <p>An LLM is like a <strong>Python REPL</strong>. It's powerful, but it's a 1-to-1, "instruction-response" loop. It waits for your next command. An <strong>AI Agent</strong> is like an <strong>Ansible Playbook</strong> or <strong>Terraform Script</strong>. You declare your desired *end state* ("I want this server configured"), and the tool *autonomously* observes, plans, and executes all the individual steps needed to reach that goal. This is the shift from *instruction* to *intention*.</p>
-                        </div>
-                        <p><strong>"Wow" Demo:</strong> A side-by-side demo showing a manual, 5-minute research task vs. a single prompt to an agent that does the same task in 30 seconds.</p>
+                        <h3 class="font-semibold text-lg text-gray-800">Module 1.1: Why Agents? The Shift from
+                            Instruction to Intention</h3>
+                        <p><strong>Concept:</strong> This module is our "Why?". Before we write any code, we must
+                            establish why agents are the necessary next step. We'll explore the limitations of
+                            single-call LLMs (like a standard ChatGPT prompt) for any complex, multi-step task. We are
+                            moving from a world of giving instructions to a world of defining intent.</p>
 
-                        <h3 class="font-semibold text-lg text-gray-800 mt-6">Module 1.2: Demystifying the "Agent" (It's Just a Loop)</h3>
-                        <p><strong>Concept:</strong> We will break down the "magic" of an agent into its simplest components. We'll show that an agent is just a `while` loop that calls an LLM. This "Observe, Think, Act" loop is the core of all agentic systems.</p>
                         <div class="analogy">
-                            <span class="analogy-title">Developer Analogy: The "World's Smartest `while` Loop"</span>
-                            <p>An agent is just this pseudocode:</p>
-<pre><code class="language-python">
-history = []
-while task_is_not_done:
-    prompt = "Based on history, what is your next step?"
-    response = llm.call(prompt, history)
-    
-    if response.is_tool_call:
-        result = execute_tool(response.tool_name)
-        history.append(result)
-    elif response.is_final_answer:
-        task_is_not_done = False
-        print(response.text)
-    
-    # Observe, Think, Act... and repeat.
-</code></pre>
-                            <p>We'll show developers that they *already* know how to build this. The only new part is the LLM call in the middle.</p>
+                            <span class="analogy-title">Developer Analogy: The REPL vs. The Ansible Script</span>
+                            <p>A "one-shot" LLM call is like a <strong>REPL (Read-Eval-Print Loop)</strong>: You type
+                                <code>2 + 2</code> and it returns <code>4</code>. You ask a question, it gives an
+                                answer. It's a powerful, single-turn "Read-Eval-Print" cycle. But it's passive. It has
+                                no state and cannot act on its own.</p>
+                            <p>An <strong>AI Agent</strong> is like an <strong>Ansible Playbook</strong> or a
+                                <strong>Terraform Script</strong>: You don't tell it how to do every step. You give it a
+                                goal (e.g., "ensure this server is configured," "get me a brief on Company X"). The
+                                script then autonomously observes the current state, thinks about the steps needed, and
+                                acts to achieve the desired state. It can run commands, check results, and loop until
+                                the goal is met.</p>
                         </div>
 
-                        <h3 class="font-semibold text-lg text-gray-800 mt-6">Module 1.3: "Hello, Agent!" (The "No-Magic" Lab)</h3>
-                        <p><strong>Concept:</strong> Our first hands-on lab. To build ultimate confidence, we will *not* use any agentic framework (like LangChain or Lyzr). We will build an agent from scratch using only Python, a `list` for history, and direct `requests` to an LLM API.</p>
+                        <div class="bg-blue-50 border-l-4 border-blue-400 p-4 my-4 rounded">
+                            <h4 class="font-semibold text-blue-800 mb-2">Key Learning:</h4>
+                            <ul class="list-disc pl-5 text-blue-700">
+                                <li>LLMs are passive "brains" that respond to instructions.</li>
+                                <li>Agents are active systems that execute on intent.</li>
+                                <li>Agents are designed to automate complex, multi-step workflows that LLMs alone cannot
+                                    handle.</li>
+                            </ul>
+                        </div>
+
                         <div class="lab">
-                            <span class="lab-title">Hands-On Lab 1.3: The "No-Magic" Agent</span>
-                            <p><strong>Task:</strong> Build a simple agent from scratch that can have a conversation and use one simple tool (e.g., a `get_current_time()` function).</p>
-                            <p><strong>Goal:</strong> Prove that the agent loop is just Python. This lab ensures every student has a rock-solid mental model of what a framework is abstracting away *before* we introduce one.</p>
+                            <span class="lab-title">Hands-On Lab 1.1: The "Wow" Demo & The "Human Agent" Exercise</span>
+                            <p><strong>Demo:</strong> We will show a side-by-side comparison of a "Manual" vs. "Agentic"
+                                workflow (e.g., "Research the top 3 competitors for Lyzr AI and summarize their main
+                                products"). We'll show the manual process (Googling, opening tabs, reading,
+                                copy-pasting) vs. a single prompt to an agent that does the same.</p>
+                            <p><strong>Exercise:</strong> You will be the agent. We'll give you a task: "Find the best
+                                Python library for PDF parsing that was released in the last 6 months." You will write
+                                down the exact, literal steps you would take (e.g., "1. Go to Google. 2. Search for 'new
+                                python pdf library 2024'. 3. Open the top 5 links..."). This exercise forces you to see
+                                the "program" an agent needs to run.</p>
+                        </div>
+
+                        <h3 class="font-semibold text-lg text-gray-800 mt-6">Module 1.2: Deconstructing the "Magic": An
+                            Agent's Anatomy</h3>
+                        <p><strong>Concept:</strong> We'll pull back the curtain and show that an agent is not a magical
+                            black box. It's a simple, elegant programming loop that you already understand. We will
+                            introduce the core loop of all agents: <strong>Observe, Think, Act (OTA)</strong>.</p>
+
+                        <div class="analogy">
+                            <span class="analogy-title">Developer Analogy: An Agent is Just a while Loop</span>
+                            <p>An agent's "magic" is just a while loop that uses an LLM to decide what to do next.</p>
+                            <pre class="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm"><code># This is the core logic of almost every agent
+goal = "What's the weather in London?"
+history = [] # Our "state"
+goal_achieved = False
+
+while not goal_achieved:
+    # 1. THINK: The LLM acts as a router or planner
+    prompt = f"Given history: {history}, what's the next step to achieve: {goal}?"
+    llm_response = llm.call(prompt) 
+    
+    # 2. ACT: We parse the LLM's response
+    if llm_response.says_final_answer():
+        print(llm_response.answer)
+        goal_achieved = True
+    
+    elif llm_response.wants_to_use_tool("get_weather"):
+        city = llm_response.get_parameter("city")
+        
+        # 3. OBSERVE: We run the tool and get the result
+        weather_data = get_weather(city)
+        history.append(f"Tool Result: {weather_data}")
+        
+    # The loop repeats, feeding the new observation back to the LLM</code></pre>
+                        </div>
+
+                        <div class="bg-blue-50 border-l-4 border-blue-400 p-4 my-4 rounded">
+                            <h4 class="font-semibold text-blue-800 mb-2">Key Learning:</h4>
+                            <ul class="list-disc pl-5 text-blue-700">
+                                <li>The "Observe, Think, Act" (OTA) loop is the fundamental pattern of all agentic
+                                    systems.</li>
+                                <li>The LLM's role shifts from being an answerer to being a planner or router that
+                                    decides the next step.</li>
+                                <li>A "Thought" is just the LLM's reasoning, often in a structured format like JSON,
+                                    that explains its plan and what action (or tool) to use next.</li>
+                            </ul>
+                        </div>
+
+                        <div class="lab">
+                            <span class="lab-title">Hands-On Lab 1.2: Pseudocode the OTA Loop</span>
+                            <p><strong>Task:</strong> Using the "Human Agent" exercise from Lab 1.1 ("find the best
+                                Python PDF library..."), you will now write the pseudocode for an agent that can
+                                accomplish it.</p>
+                            <p><strong>Goal:</strong> You must use the while loop structure. Define what your "tools"
+                                would be (e.g., <code>google_search(query)</code>, <code>read_webpage(url)</code>) and
+                                write the if/elif logic inside your loop to show how the agent would "Think" and "Act."
+                            </p>
+                        </div>
+
+                        <h3 class="font-semibold text-lg text-gray-800 mt-6">Module 1.3: "Hello, Agent!" – Building Your
+                            First Agent from Scratch</h3>
+                        <p><strong>Concept:</strong> This is where the confidence is built. We will build a real,
+                            working agent using only standard Python and an LLM API key. No frameworks, no libraries, no
+                            magic. This lab proves that all the concepts from Modules 1.1 and 1.2 are just simple,
+                            understandable code.</p>
+
+                        <div class="analogy">
+                            <span class="analogy-title">Developer Analogy: No Frameworks, No Magic</span>
+                            <p>This is the "learn to build a web server with Python's basic <code>http.server</code>" of
+                                agent development. Before you use a complex framework like Django or Flask, you must
+                                understand the raw request/response cycle. By building this "from scratch," you will
+                                know what the frameworks are doing for you later.</p>
+                        </div>
+
+                        <div class="bg-blue-50 border-l-4 border-blue-400 p-4 my-4 rounded">
+                            <h4 class="font-semibold text-blue-800 mb-2">Key Learning:</h4>
+                            <ul class="list-disc pl-5 text-blue-700">
+                                <li>An agent is just a Python script with a loop and a list to manage history (state).
+                                </li>
+                                <li>A "Tool" is just a Python function you write and describe in the system prompt.</li>
+                                <li>The System Prompt is the "operating system" for your agent. It defines the rules,
+                                    the goal, and the "API" of the tools the agent is allowed to call.</li>
+                            </ul>
+                        </div>
+
+                        <div class="lab">
+                            <span class="lab-title">Hands-On Lab 1.3: The "No-Magic" Weather Agent</span>
+                            <p><strong>Task:</strong> You will write a single Python script (<code>agent.py</code>) that
+                                can answer the question: "What's the weather in London?"</p>
+
+                            <div class="mt-3">
+                                <h5 class="font-semibold text-green-700 mb-2">Requirements:</h5>
+                                <ol class="list-decimal pl-5 space-y-2">
+                                    <li>You will write a simple Python function <code>get_weather(city)</code>. (It can
+                                        just return a hard-coded JSON string like
+                                        <code>{"city": "London", "temp": "15C"}</code> for this lab).</li>
+                                    <li>You will write a <code>system_prompt</code> that tells the LLM: "You are a
+                                        helpful assistant. You have one tool: get_weather(city). When asked about the
+                                        weather, you MUST reply only with a JSON object in the format: {"thought":
+                                        "...", "action": "get_weather", "city": "..."}. If you have the final answer,
+                                        reply with: {"thought": "...", "final_answer": "..."}"</li>
+                                    <li>You will write the while loop that:
+                                        <ul class="list-disc pl-5 mt-2 space-y-1">
+                                            <li>Calls the LLM with the user query and prompt.</li>
+                                            <li>Parses the LLM's JSON response.</li>
+                                            <li>If it sees an "action", it calls your local <code>get_weather</code>
+                                                function.</li>
+                                            <li>It then takes the function's output and feeds it back into the LLM in
+                                                the next loop.</li>
+                                            <li>It continues until the LLM returns a <code>final_answer</code>.</li>
+                                        </ul>
+                                    </li>
+                                </ol>
+                            </div>
                         </div>
                     </div>
                 </details>
@@ -138,48 +283,78 @@ while task_is_not_done:
                         Week 2: Giving Agents Memory – The Power of RAG
                     </summary>
                     <div class="mt-4 prose prose-slate max-w-none text-gray-700">
-                        <p class="text-lg"><strong>Weekly Goal:</strong> To solve the agent "amnesia problem." You will learn the difference between short-term conversational memory and long-term knowledge memory. By the end of this week, you will understand and build the most critical pattern in agentic AI: <strong>Retrieval-Augmented Generation (RAG)</strong>.</p>
-                        
+                        <p class="text-lg"><strong>Weekly Goal:</strong> To solve the agent "amnesia problem." You will
+                            learn the difference between short-term conversational memory and long-term knowledge
+                            memory. By the end of this week, you will understand and build the most critical pattern in
+                            agentic AI: <strong>Retrieval-Augmented Generation (RAG)</strong>.</p>
+
                         <hr class="my-4">
 
-                        <h3 class="font-semibold text-lg text-gray-800">Module 2.1: The Amnesia Problem (Short-Term Memory)</h3>
-                        <p><strong>Concept:</strong> LLMs are stateless. Every API call is independent. We'll show how passing the conversation `history` (from Lab 1.3) solves short-term memory but inevitably fails by overflowing the LLM's **context window** (its "RAM").</p>
+                        <h3 class="font-semibold text-lg text-gray-800">Module 2.1: The Amnesia Problem (Short-Term
+                            Memory)</h3>
+                        <p><strong>Concept:</strong> LLMs are stateless. Every API call is independent. We'll show how
+                            passing the conversation `history` (from Lab 1.3) solves short-term memory but inevitably
+                            fails by overflowing the LLM's **context window** (its "RAM").</p>
                         <div class="analogy">
                             <span class="analogy-title">Developer Analogy: HTTP vs. Sessions</span>
-                            <p>A stateless LLM call is like a raw <strong>HTTP request</strong>. The server forgets you instantly. Passing the chat history is like stuffing all your data into a <strong>Session Cookie</strong> or `request.session`. It works, but it's slow, expensive, and will eventually break (a "413 Payload Too Large" error).</p>
+                            <p>A stateless LLM call is like a raw <strong>HTTP request</strong>. The server forgets you
+                                instantly. Passing the chat history is like stuffing all your data into a
+                                <strong>Session Cookie</strong> or `request.session`. It works, but it's slow,
+                                expensive, and will eventually break (a "413 Payload Too Large" error).
+                            </p>
                         </div>
                         <div class="lab">
                             <span class="lab-title">Hands-On Lab 2.1: Breaking the Context Window</span>
-                            <p><strong>Task:</strong> Modify your "No-Magic Agent" by pre-filling the `history` list with 10,000 words. When you run it, the LLM API call will fail with a "Context Length Exceeded" error. This makes the abstract problem of the context window a *tangible bug* that you must now solve.</p>
+                            <p><strong>Task:</strong> Modify your "No-Magic Agent" by pre-filling the `history` list
+                                with 10,000 words. When you run it, the LLM API call will fail with a "Context Length
+                                Exceeded" error. This makes the abstract problem of the context window a *tangible bug*
+                                that you must now solve.</p>
                         </div>
 
-                        <h3 class="font-semibold text-lg text-gray-800 mt-6">Module 2.2: Long-Term Memory (Embeddings & Vector Databases)</h3>
-                        <p><strong>Concept:</strong> We introduce the solution for long-term memory. To do this, we must first understand "embeddings" (semantic hashes) and "vector databases" (search-by-meaning).</p>
+                        <h3 class="font-semibold text-lg text-gray-800 mt-6">Module 2.2: Long-Term Memory (Embeddings &
+                            Vector Databases)</h3>
+                        <p><strong>Concept:</strong> We introduce the solution for long-term memory. To do this, we must
+                            first understand "embeddings" (semantic hashes) and "vector databases" (search-by-meaning).
+                        </p>
                         <div class="analogy">
                             <span class="analogy-title">Developer Analogy: SQL `LIKE` vs. Vector Search</span>
-                            <p>A SQL DB finds *literal* matches: `SELECT * WHERE content LIKE '%developer%';` (This will NOT find "software engineer"). A <strong>Vector DB</strong> finds *conceptual* matches. A query for "developer" *will* find "software engineer" because their "semantic hashes" (vectors) are numerically close. It's a database that searches by *meaning*, not just text.</p>
+                            <p>A SQL DB finds *literal* matches: `SELECT * WHERE content LIKE '%developer%';` (This will
+                                NOT find "software engineer"). A <strong>Vector DB</strong> finds *conceptual* matches.
+                                A query for "developer" *will* find "software engineer" because their "semantic hashes"
+                                (vectors) are numerically close. It's a database that searches by *meaning*, not just
+                                text.</p>
                         </div>
                         <div class="lab">
                             <span class="lab-title">Hands-On Lab 2.2: "Hello, Vectors!"</span>
-                            <p><strong>Task:</strong> In 10 lines of Python, use a simple in-memory vector DB (like `chromadb`). You'll add "The cat is sleeping" and then query for "What is the feline doing?". The "aha!" moment is seeing it return the "cat" document. You've just built a search engine that understands synonyms.</p>
+                            <p><strong>Task:</strong> In 10 lines of Python, use a simple in-memory vector DB (like
+                                `chromadb`). You'll add "The cat is sleeping" and then query for "What is the feline
+                                doing?". The "aha!" moment is seeing it return the "cat" document. You've just built a
+                                search engine that understands synonyms.</p>
                         </div>
 
-                        <h3 class="font-semibold text-lg text-gray-800 mt-6">Module 2.3: The "Chat with your Docs" Agent (RAG)</h3>
-                        <p><strong>Concept:</strong> Combine the agent loop (Week 1) with the vector DB (Module 2.2) to build a **Retrieval-Augmented Generation (RAG)** agent. This is the payoff.</p>
+                        <h3 class="font-semibold text-lg text-gray-800 mt-6">Module 2.3: The "Chat with your Docs" Agent
+                            (RAG)</h3>
+                        <p><strong>Concept:</strong> Combine the agent loop (Week 1) with the vector DB (Module 2.2) to
+                            build a **Retrieval-Augmented Generation (RAG)** agent. This is the payoff.</p>
                         <div class="analogy">
                             <span class="analogy-title">Developer Analogy: The "Open-Book Exam"</span>
-                            <p>A normal LLM call is a "closed-book exam" (it only knows its training data). A <strong>RAG call</strong> is an "open-book exam." The agent's new flow is:
+                            <p>A normal LLM call is a "closed-book exam" (it only knows its training data). A
+                                <strong>RAG call</strong> is an "open-book exam." The agent's new flow is:
                             <ol>
-                                <li><strong>Retrieve (The `SELECT`):</strong> First, search the vector DB for relevant context.</li>
-                                <li><strong>Augment (The "Context Stuffing"):</strong> Stuff that context into the *top* of a new prompt.</li>
-                                <li><strong>Generate (The "Render"):</strong> Ask the LLM to answer the user's question *using only* the provided context.</li>
+                                <li><strong>Retrieve (The `SELECT`):</strong> First, search the vector DB for relevant
+                                    context.</li>
+                                <li><strong>Augment (The "Context Stuffing"):</strong> Stuff that context into the *top*
+                                    of a new prompt.</li>
+                                <li><strong>Generate (The "Render"):</strong> Ask the LLM to answer the user's question
+                                    *using only* the provided context.</li>
                             </ol>
                             This grounds the agent in *your* data and prevents hallucination.
                             </p>
                         </div>
                         <div class="lab">
                             <span class="lab-title">Hands-On Lab 2.3: "Chat with Lyzr" RAG Agent</span>
-                            <p><strong>Task:</strong> Build a complete RAG agent from scratch that ingests a text file (`lyzr_about.txt`) and answers questions about it.</p>
+                            <p><strong>Task:</strong> Build a complete RAG agent from scratch that ingests a text file
+                                (`lyzr_about.txt`) and answers questions about it.</p>
                         </div>
                     </div>
                 </details>
@@ -190,85 +365,146 @@ while task_is_not_done:
                         Week 3: Building an Agent Team – Multi-Agent Orchestration
                     </summary>
                     <div class="mt-4 prose prose-slate max-w-none text-gray-700">
-                        <p class="text-lg"><strong>Weekly Goal:</strong> To scale our systems by moving from a single "God" agent to a collaborative team of specialized agents. You will learn the core patterns of multi-agent design and orchestrate a workflow, setting the stage for building true "super agents."</p>
-                        
+                        <p class="text-lg"><strong>Weekly Goal:</strong> To scale our systems by moving from a single
+                            "God" agent to a collaborative team of specialized agents. You will learn the core patterns
+                            of multi-agent design and orchestrate a workflow, setting the stage for building true "super
+                            agents."</p>
+
                         <hr class="my-4">
 
                         <h3 class="font-semibold text-lg text-gray-800">Module 3.1: The "God Agent" Problem</h3>
-                        <p><strong>Concept:</strong> We'll show that as you add more tools and logic to a single agent, its prompt becomes a "God prompt"—a bloated, brittle, and unmaintainable mess.</p>
+                        <p><strong>Concept:</strong> We'll show that as you add more tools and logic to a single agent,
+                            its prompt becomes a "God prompt"—a bloated, brittle, and unmaintainable mess.</p>
                         <div class="analogy">
                             <span class="analogy-title">Developer Analogy: The Monolith vs. Microservices</span>
-                            <p>A "God Agent" is a <strong>Monolith</strong>. It's one giant `main.py` that handles auth, DB, email, and business logic. A <strong>Multi-Agent System</strong> is a <strong>Microservices Architecture</strong>. We create specialized agents (a `ResearchAgent`, a `WritingAgent`, an `EmailAgent`) that each do one thing perfectly. This is modular, testable, and scalable.</p>
+                            <p>A "God Agent" is a <strong>Monolith</strong>. It's one giant `main.py` that handles auth,
+                                DB, email, and business logic. A <strong>Multi-Agent System</strong> is a
+                                <strong>Microservices Architecture</strong>. We create specialized agents (a
+                                `ResearchAgent`, a `WritingAgent`, an `EmailAgent`) that each do one thing perfectly.
+                                This is modular, testable, and scalable.
+                            </p>
                         </div>
 
-                        <h3 class="font-semibold text-lg text-gray-800 mt-6">Module 3.2: The Conductor and the Orchestra (Orchestration Patterns)</h3>
-                        <p><strong>Concept:</strong> Now that we have a team, we need a "conductor" (Orchestrator Agent). We'll cover the two patterns Lyzr uses: Managerial (Hierarchical) and DAG (Sequential).</p>
+                        <h3 class="font-semibold text-lg text-gray-800 mt-6">Module 3.2: The Conductor and the Orchestra
+                            (Orchestration Patterns)</h3>
+                        <p><strong>Concept:</strong> Now that we have a team, we need a "conductor" (Orchestrator
+                            Agent). We'll cover the two patterns Lyzr uses: Managerial (Hierarchical) and DAG
+                            (Sequential).</p>
                         <div class="analogy">
                             <span class="analogy-title">Developer Analogies for Orchestration</span>
-                            <p><strong>1. The "Managerial" (Hierarchical) Model:</strong> This is a <strong>Tech Lead and Junior Devs</strong>. The Manager Agent (Lead) gets a complex goal, breaks it down, and delegates tasks to worker agents (Juniors), then reviews their work and plans the next step. It's dynamic and great for complex, unknown problems.</p>
-                            <p><strong>2. The "DAG" (Sequential) Model:</strong> This is a <strong>CI/CD Pipeline (`.gitlab-ci.yml`)</strong>. It's a fixed, predictable workflow (`lint` -> `test` -> `build`). The output of one agent is "piped" directly to the input of the next. It's reliable and perfect for auditable business processes.</p>
+                            <p><strong>1. The "Managerial" (Hierarchical) Model:</strong> This is a <strong>Tech Lead
+                                    and Junior Devs</strong>. The Manager Agent (Lead) gets a complex goal, breaks it
+                                down, and delegates tasks to worker agents (Juniors), then reviews their work and plans
+                                the next step. It's dynamic and great for complex, unknown problems.</p>
+                            <p><strong>2. The "DAG" (Sequential) Model:</strong> This is a <strong>CI/CD Pipeline
+                                    (`.gitlab-ci.yml`)</strong>. It's a fixed, predictable workflow (`lint` -> `test` ->
+                                `build`). The output of one agent is "piped" directly to the input of the next. It's
+                                reliable and perfect for auditable business processes.</p>
                         </div>
 
-                        <h3 class="font-semibold text-lg text-gray-800 mt-6">Module 3.3: "Hello, Team!" – Building a 3-Agent Workflow</h3>
-                        <p><strong>Concept:</strong> We'll build a "blog post" generator using the **DAG (Sequential) Model** because it's the easiest to build from scratch and is the agentic equivalent of a `bash` pipe.</p>
+                        <h3 class="font-semibold text-lg text-gray-800 mt-6">Module 3.3: "Hello, Team!" – Building a
+                            3-Agent Workflow</h3>
+                        <p><strong>Concept:</strong> We'll build a "blog post" generator using the **DAG (Sequential)
+                            Model** because it's the easiest to build from scratch and is the agentic equivalent of a
+                            `bash` pipe.</p>
                         <div class="lab">
                             <span class="lab-title">Hands-On Lab 3.3: The "Assembly Line" Agent Team</span>
-                            <p><strong>Task:</strong> Build a 3-agent DAG workflow (`research_agent.py`, `writing_agent.py`, `review_agent.py`).</p>
-                            <p><strong>Goal:</strong> Your main script will "pipe" the output of the first agent into the second, and the second into the third. We'll end by posing a question: "This works, but now 5 agents all need to know about our 10 tools. How do we manage that?" This is the "N x M" problem that leads perfectly into Week 4.</p>
+                            <p><strong>Task:</strong> Build a 3-agent DAG workflow (`research_agent.py`,
+                                `writing_agent.py`, `review_agent.py`).</p>
+                            <p><strong>Goal:</strong> Your main script will "pipe" the output of the first agent into
+                                the second, and the second into the third. We'll end by posing a question: "This works,
+                                but now 5 agents all need to know about our 10 tools. How do we manage that?" This is
+                                the "N x M" problem that leads perfectly into Week 4.</p>
                         </div>
                     </div>
                 </details>
 
                 <!-- Week 4 -->
-                <details class="bg-white p-6 rounded-lg shadow-sm border border-gray-200" open>
+                <details class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
                     <summary class="text-xl font-semibold text-gray-800">
                         Week 4: The Lyzr Deep Dive – From Prototype to Production "Super Agent"
                     </summary>
                     <div class="mt-4 prose prose-slate max-w-none text-gray-700">
-                        <p class="text-lg"><strong>Weekly Goal:</strong> To bridge the gap from a "from-scratch" prototype to a scalable, production-grade agentic system. You will solve the "N x M" tool integration problem using the Model Context Protocol (MCP) and synthesize all your skills into a capstone project: building a "super agent" modeled on Lyzr's `Diane for HR`.</p>
-                        
+                        <p class="text-lg"><strong>Weekly Goal:</strong> To bridge the gap from a "from-scratch"
+                            prototype to a scalable, production-grade agentic system. You will solve the "N x M" tool
+                            integration problem using the Model Context Protocol (MCP) and synthesize all your skills
+                            into a capstone project: building a "super agent" modeled on Lyzr's `Diane for HR`.</p>
+
                         <hr class="my-4">
 
-                        <h3 class="font-semibold text-lg text-gray-800">Module 4.1: The "Integration Hell" Problem (The "N x M" Problem)</h3>
-                        <p><strong>Concept:</strong> We formalize the "N x M" problem (20 agents needing to know about 10 tools). Copy-pasting 10 tool definitions into 20 system prompts is unmaintainable. This is the "Integration Hell" that stops prototypes from becoming products.</p>
+                        <h3 class="font-semibold text-lg text-gray-800">Module 4.1: The "Integration Hell" Problem (The
+                            "N x M" Problem)</h3>
+                        <p><strong>Concept:</strong> We formalize the "N x M" problem (20 agents needing to know about
+                            10 tools). Copy-pasting 10 tool definitions into 20 system prompts is unmaintainable. This
+                            is the "Integration Hell" that stops prototypes from becoming products.</p>
                         <div class="analogy">
-                            <span class="analogy-title">Developer Analogy: Hard-Coded `fetch` vs. a Service Mesh (gRPC)</span>
-                            <p>Our "from-scratch" way is like hard-coding `fetch('http://weather-api.com')` inside 20 microservices. The **"Production" Way (MCP)** is like a <strong>Service Mesh (gRPC/Istio)</strong>. You build your tool *once* as an independent "service." All your agents ("clients") just connect to the mesh, which handles <strong>service discovery</strong>. The agent just says "I need the 'weather' service," and the mesh connects them. This is what the **Model Context Protocol (MCP)** does for AI agents.</p>
+                            <span class="analogy-title">Developer Analogy: Hard-Coded `fetch` vs. a Service Mesh
+                                (gRPC)</span>
+                            <p>Our "from-scratch" way is like hard-coding `fetch('http://weather-api.com')` inside 20
+                                microservices. The **"Production" Way (MCP)** is like a <strong>Service Mesh
+                                    (gRPC/Istio)</strong>. You build your tool *once* as an independent "service." All
+                                your agents ("clients") just connect to the mesh, which handles <strong>service
+                                    discovery</strong>. The agent just says "I need the 'weather' service," and the mesh
+                                connects them. This is what the **Model Context Protocol (MCP)** does for AI agents.</p>
                         </div>
-                        <p><strong>Key Learning:</strong> MCP is an open standard that **decouples agents from their tools.** Tools become "MCP Servers," and agents become "MCP Clients."</This>
-                        
-                        <h3 class="font-semibold text-lg text-gray-800 mt-6">Module 4.2: Refactoring Our Team with MCP</h3>
-                        <p><strong>Concept:</strong> A "before and after" refactoring lab. We'll take our messy, hard-coded "Assembly Line" from Lab 3.3 and refactor it to use the MCP standard, showing how it solves the N x M problem.</p>
+                        <p><strong>Key Learning:</strong> MCP is an open standard that **decouples agents from their
+                            tools.** Tools become "MCP Servers," and agents become "MCP Clients."</This>
+
+                        <h3 class="font-semibold text-lg text-gray-800 mt-6">Module 4.2: Refactoring Our Team with MCP
+                        </h3>
+                        <p><strong>Concept:</strong> A "before and after" refactoring lab. We'll take our messy,
+                            hard-coded "Assembly Line" from Lab 3.3 and refactor it to use the MCP standard, showing how
+                            it solves the N x M problem.</p>
                         <div class="lab">
                             <span class="lab-title">Hands-On Lab 4.2: The "Service Mesh" Refactor</span>
                             <p><strong>Task:</strong> You will refactor your 3-agent workflow from Week 3.</p>
-                            <p><strong>"Before":</strong> `research_agent.py` has the `Google Search` tool hard-coded in its prompt.</p>
-                            <p><strong>"After":</strong> We'll provide a `tool_server.py` that runs an MCP Server exposing the `Google Search` tool. You will *delete* the tool definition from your agent's prompt and modify it to be an MCP Client. Your agent's prompt is now clean, and *any* agent can now use the `Google Search` tool for free. The "N x M" problem is solved.</p>
+                            <p><strong>"Before":</strong> `research_agent.py` has the `Google Search` tool hard-coded in
+                                its prompt.</p>
+                            <p><strong>"After":</strong> We'll provide a `tool_server.py` that runs an MCP Server
+                                exposing the `Google Search` tool. You will *delete* the tool definition from your
+                                agent's prompt and modify it to be an MCP Client. Your agent's prompt is now clean, and
+                                *any* agent can now use the `Google Search` tool for free. The "N x M" problem is
+                                solved.</p>
                         </div>
 
-                        <h3 class="font-semibold text-lg text-gray-800 mt-6">Module 4.3: Capstone Project – Building "Diane-Lite" (An HR Super Agent)</h3>
-                        <p><strong>Concept:</strong> The final project. You will synthesize *everything*—the agent loop, RAG, multi-agent orchestration, and MCP—to build a simplified version of Lyzr's `Diane for HR` super agent. This will use the "Managerial" (Hierarchical) model.</p>
-                        
+                        <h3 class="font-semibold text-lg text-gray-800 mt-6">Module 4.3: Capstone Project – Building
+                            "Diane-Lite" (An HR Super Agent)</h3>
+                        <p><strong>Concept:</strong> The final project. You will synthesize *everything*—the agent loop,
+                            RAG, multi-agent orchestration, and MCP—to build a simplified version of Lyzr's `Diane for
+                            HR` super agent. This will use the "Managerial" (Hierarchical) model.</p>
+
                         <p><strong>The Architecture:</strong></p>
                         <ul class="list-disc pl-5">
-                            <li><strong>`Diane-Manager` (The Conductor):</strong> The user only talks to this agent. It takes the goal, breaks it down, and delegates.</li>
-                            <li><strong>`HR-Policy-Agent` (Worker):</strong> A RAG agent (from Week 2) connected to `hr_policy.pdf`.</li>
-                            <li><strong>`Resume-Screener-Agent` (Worker):</strong> A RAG agent connected to a `resumes/` folder.</li>
-                            <li><strong>`Calendar-Agent` (Worker):</strong> An agent with a tool to `find_available_interview_slot()`.</li>
+                            <li><strong>`Diane-Manager` (The Conductor):</strong> The user only talks to this agent. It
+                                takes the goal, breaks it down, and delegates.</li>
+                            <li><strong>`HR-Policy-Agent` (Worker):</strong> A RAG agent (from Week 2) connected to
+                                `hr_policy.pdf`.</li>
+                            <li><strong>`Resume-Screener-Agent` (Worker):</strong> A RAG agent connected to a `resumes/`
+                                folder.</li>
+                            <li><strong>`Calendar-Agent` (Worker):</strong> An agent with a tool to
+                                `find_available_interview_slot()`.</li>
                         </ul>
 
                         <div class="lab">
                             <span class="lab-title">Hands-On Lab 4.3: The "Super Agent" Workflow</span>
-                            <p><strong>Task:</strong> Assemble all four agents and run a final "integration test" with a single, complex user prompt:</p>
-                            <p><em>"Hi, I'm hiring a 'Senior Python Developer.' First, what is our company's policy on remote work? Second, please find the top 3 candidates for that role from our resume folder and book a 1-hour interview slot for them next Tuesday."</em></p>
-                            <p><strong>The "Aha!" Moment:</strong> You will watch the `Diane-Manager`'s "thoughts" as it intelligently orchestrates the entire workflow: calling the policy agent, then the resume agent, then the calendar agent, and finally synthesizing all three results into a single, perfect answer for the user.</p>
+                            <p><strong>Task:</strong> Assemble all four agents and run a final "integration test" with a
+                                single, complex user prompt:</p>
+                            <p><em>"Hi, I'm hiring a 'Senior Python Developer.' First, what is our company's policy on
+                                    remote work? Second, please find the top 3 candidates for that role from our resume
+                                    folder and book a 1-hour interview slot for them next Tuesday."</em></p>
+                            <p><strong>The "Aha!" Moment:</strong> You will watch the `Diane-Manager`'s "thoughts" as it
+                                intelligently orchestrates the entire workflow: calling the policy agent, then the
+                                resume agent, then the calendar agent, and finally synthesizing all three results into a
+                                single, perfect answer for the user.</p>
                         </div>
 
                         <h3 class="font-semibold text-lg text-gray-800 mt-6">Module 4.4: The Road Ahead</h3>
                         <p><strong>Concept:</strong> A final wrap-up on production readiness.</p>
                         <ul class="list-disc pl-5">
-                            <li><strong>Evaluation:</strong> How do you test an agent? We'll discuss "AI-as-a-grader" (using one LLM to "grade" another's output).</li>
-                            <li><strong>Safety & Guardrails:</strong> The importance of "human-in-the-loop" approval steps before an agent can *act* (e.g., send an email, modify a database).</li>
+                            <li><strong>Evaluation:</strong> How do you test an agent? We'll discuss "AI-as-a-grader"
+                                (using one LLM to "grade" another's output).</li>
+                            <li><strong>Safety & Guardrails:</strong> The importance of "human-in-the-loop" approval
+                                steps before an agent can *act* (e.g., send an email, modify a database).</li>
                             <li><strong>The Future:</strong> An inspiring look at the "Agent Movement."</li>
                         </ul>
                     </div>
@@ -280,11 +516,12 @@ while task_is_not_done:
         <!-- Part 2: The Video -->
         <section>
             <h2 class="text-2xl font-semibold text-gray-900 mb-4">Part 2: 3-Minute Teaching Video</h2>
-            <p class="mb-4">For the video portion, I chose to teach **Module 2.3: The "Chat with your Docs" Agent (RAG)**. This concept is fundamental to building useful agents and provides a great "aha!" moment for developers.</p>
+            <p class="mb-4">For the video portion, I chose to teach **Module 2.3: The "Chat with your Docs" Agent
+                (RAG)**. This concept is fundamental to building useful agents and provides a great "aha!" moment for
+                developers.</p>
             <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-xl border border-gray-200">
                 <!-- 
     </div>
 
 </body>
 </html>
-
